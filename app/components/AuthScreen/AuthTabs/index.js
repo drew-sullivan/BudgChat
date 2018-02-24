@@ -1,6 +1,7 @@
-import { TabNavigator } from 'react-navigation';
-import LoginForm from './LoginForm';
-import SignUpForm from './SignUpForm';
+import { TabNavigator } from 'react-navigation'
+
+import LoginForm from './LoginForm'
+import SignUpForm from './SignUpForm'
 
 const routeConfigs = {
   Login: {
@@ -21,10 +22,10 @@ const tabBarOptions = {
       display: 'none',
     },
     style: {
-      backgroundColo: '#ffffff',
+      backgroundColor: '#ffffff',
     },
   },
   tabBarPosition: 'bottom'
 }
 
-export default TabNavigator(routeConfigs, tabBarOptions);
+export default TabNavigator(routeConfigs, tabBarOptions)

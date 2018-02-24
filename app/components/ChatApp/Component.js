@@ -1,13 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { ActivityIndicator } from 'react-native';
-import DashboardNavigator from '../DashboardNavigator';
-import AuthScreen from '../AuthScreen';
-import Styles from './Styles';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const ChatAppComponent = (props) => {
+import { ActivityIndicator } from 'react-native'
+
+import DashboardNavigator from '../DashboardNavigator'
+import AuthScreen from '../AuthScreen'
+
+import styles from './Styles'
+
+const ChatAppComponent = props => {
   if (props.restoring) {
-    return <ActivityIndicator style={styles.ActivityIndicator} />
+    return <ActivityIndicator style={styles.activityIndicator} />
   } else {
     if (props.logged) {
       return <DashboardNavigator />
@@ -22,4 +25,4 @@ ChatAppComponent.propTypes = {
   logged: PropTypes.bool.isRequired,
 }
 
-export default ChatAppComponent;
+export default ChatAppComponent
