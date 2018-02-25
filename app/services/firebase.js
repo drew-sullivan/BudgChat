@@ -13,5 +13,5 @@ class FirebaseService {
   }
 }
 
-const firebaseService = new FirebaseService().app
+const firebaseService = new FirebaseService().app;
 export default firebaseService;

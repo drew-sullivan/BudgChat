@@ -52,9 +52,7 @@ class BasicFormComponent extends Component {
         <TouchableOpacity
           style={styles.button}
           onPress={this.handleButtonPress}>
-
           <Text style={styles.buttonTitle}>{this.props.buttonTitle}</Text>
-
         </TouchableOpacity>
 
       </View>
