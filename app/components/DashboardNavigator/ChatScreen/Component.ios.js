@@ -10,7 +10,7 @@ const ChatScreenComponent = () =>
   <KeyboardAvoidingView
     style={styles.container}
     behavior='padding'
-    keyboardVerticalOffset={64}>
+    keyboardVerticalOffset={90}>
 
     <MessagesList />
     <MessageForm />

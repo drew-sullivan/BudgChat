@@ -2,7 +2,7 @@ import * as types from './actionTypes'
 import firebaseService from '../../services/firebase'
 
 const FIREBASE_REF_MESSAGES = firebaseService.database().ref('Messages')
-const FIREBASE_REF_MESSAGES_LIMIT = 20
+const FIREBASE_REF_MESSAGES_LIMIT = 200
 
 export const sendMessage = message => {
   return (dispatch) => {

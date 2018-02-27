@@ -2,31 +2,25 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import relativeDate from 'relative-date'
+import moment from 'moment'
 
 import styles from './Styles'
 import translations from '../../../../../i18n'
 
-const MESSAGE_TEXT_MARGIN = 50
+const MESSAGE_TEXT_MARGIN = 0
 
 const MessageRowComponent = props => {
   const isCurrentUser = props.isCurrentUser
-  const alignItems = isCurrentUser ? 'flex-end' : 'flex-start'
-  const margin = isCurrentUser ? {marginLeft: MESSAGE_TEXT_MARGIN} : {marginRight: MESSAGE_TEXT_MARGIN}
+  const alignItems = 'flex-end'
   const username = isCurrentUser ? translations.t('you') : props.message.user.email
-  const date = relativeDate(new Date(props.message.createdAt))
+  const relDate = relativeDate(new Date(props.message.createdAt))
+  const date = moment(props.message.createdAt).format('dddd, L [at] h:mma')
   return (
-    <View
-      style={styles.container}>
-      <View
-        style={ [styles.bubbleView, {alignItems: alignItems}, margin] }>
-        <Text
-          style={styles.userText} >
-          {date + ' - ' + username}
-        </Text>
-        <Text
-          style={styles.messageText}>
-          {props.message.text}
-        </Text>
+    <View style={styles.container}>
+      <View style={ [styles.bubbleView, {alignItems}] }>
+        <Text style={styles.messageText}>{props.message.text}</Text>
+        <Text style={styles.userText}>{relDate} - {date}</Text>
+        <Text style={styles.userText}>{username}</Text>
       </View>
     </View>
   )
