@@ -11,7 +11,6 @@ import styles from './Styles'
 const ITEM_HEIGHT = 50
 
 class MessageListComponent extends Component {
-
   constructor() {
     super()
 
@@ -34,8 +33,9 @@ class MessageListComponent extends Component {
   }
 
   componentDidUpdate() {
-    if (this.props.data.length) {
-        this.flatList.scrollToIndex({animated: true, index: 0});
+    const len = this.props.data.length;
+    if (len) {
+        this.flatList.scrollToIndex({animated: true, index: (len - 1)});
     }
   }
 
