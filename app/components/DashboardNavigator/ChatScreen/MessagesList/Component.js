@@ -11,6 +11,7 @@ import styles from './Styles'
 const ITEM_HEIGHT = 50
 
 class MessageListComponent extends Component {
+
   constructor() {
     super()
 

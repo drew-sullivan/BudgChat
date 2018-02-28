@@ -11,6 +11,7 @@ export default {
   error: 'Error',
 
   you: 'You',
+  notes: 'Notes',
 
   placeholder: 'There are no messages yet',
 }

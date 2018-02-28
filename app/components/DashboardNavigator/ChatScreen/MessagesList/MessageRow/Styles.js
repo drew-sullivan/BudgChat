@@ -16,9 +16,9 @@ export default StyleSheet.create({
     padding: 8
   },
   userText: {
+    flex: 1,
     color: 'black',
     fontSize: 14,
-    fontWeight: 'bold'
   },
   messageText: {
     flex: 1,

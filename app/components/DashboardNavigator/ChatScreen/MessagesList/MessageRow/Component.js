@@ -18,8 +18,9 @@ const MessageRowComponent = props => {
   return (
     <View style={styles.container}>
       <View style={ [styles.bubbleView, {alignItems}] }>
-        <Text style={styles.messageText}>{props.message.text}</Text>
+        <Text style={styles.userText}>Withdrawl: $20.00 Running Balance: $1,500</Text>
         <Text style={styles.userText}>{relDate} - {date}</Text>
+        <Text style={styles.userText}>{translations.t('notes')}: {props.message.text}</Text>
         <Text style={styles.userText}>{username}</Text>
       </View>
     </View>
