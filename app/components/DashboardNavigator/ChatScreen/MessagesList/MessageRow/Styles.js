@@ -3,17 +3,33 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    padding: 8,
+    padding: 0,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#eeeeee',
-    borderRadius: 5
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+    justifyContent: 'space-between',
   },
-  bubbleView: {
+  box: {
+    height: 75,
+    flexDirection: 'column',
+    padding: 10,
     backgroundColor: 'white',
-    flex: 1,
-    borderRadius: 8,
-    padding: 8
+    justifyContent: 'space-between',
+  },
+  leftBox: {
+    width: '55%',
+    alignItems: 'flex-start',
+  },
+  rightBox: {
+    width: '45%',
+    alignItems: 'flex-end',
+  },
+  textBig: {
+    fontSize: 20,
+  },
+  textBold: {
+    fontWeight: 'bold',
   },
   userText: {
     flex: 1,
