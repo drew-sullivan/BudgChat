@@ -19,16 +19,16 @@ const MessageRowComponent = props => {
         <Text style={styles.textBig}>Withdrawl:
           <Text style={styles.textBold}> $20.00</Text>
         </Text>
-        <Text style={{fontSize: 12}}>Running Balance:
+        <Text style={styles.regularText}>Running Balance:
           <Text style={styles.textBold}> $1,500</Text>
         </Text>
       </View>
       <View style={[styles.box, styles.rightBox]}>
-        <Text style={{fontSize: 12}}>{date}</Text>
-        <Text style={{fontSize: 12}} numberOfLines={1}>Notes:
+        <Text style={styles.regularText}>{date}</Text>
+        <Text style={styles.regularText} numberOfLines={1}>Notes:
           <Text style={styles.textBold}> {props.message.text}</Text>
         </Text>
-        <Text style={{fontSize: 12}}>{username}</Text>
+        <Text style={styles.regularText}>{username}</Text>
       </View>
     </View>
   )

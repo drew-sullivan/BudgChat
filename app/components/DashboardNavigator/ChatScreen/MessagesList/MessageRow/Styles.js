@@ -31,14 +31,7 @@ export default StyleSheet.create({
   textBold: {
     fontWeight: 'bold',
   },
-  userText: {
-    flex: 1,
-    color: 'black',
-    fontSize: 14,
+  regularText: {
+    fontSize: 12,
   },
-  messageText: {
-    flex: 1,
-    color: 'black',
-    fontSize: 16
-  }
 })
