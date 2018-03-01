@@ -7,8 +7,6 @@ import moment from 'moment'
 import styles from './Styles'
 import translations from '../../../../../i18n'
 
-const MESSAGE_TEXT_MARGIN = 50
-
 const MessageRowComponent = props => {
   const isCurrentUser = props.isCurrentUser
   const username = isCurrentUser ? translations.t('you') : props.message.user.email
