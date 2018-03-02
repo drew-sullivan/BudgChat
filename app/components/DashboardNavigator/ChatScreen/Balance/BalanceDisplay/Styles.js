@@ -1,10 +1,14 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    flex: 1,
     backgroundColor: '#eeeeee',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  balanceAmount: {
+    fontSize: 40
   }
 })

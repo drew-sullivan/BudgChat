@@ -1,8 +1,9 @@
 import React from 'react'
-import { KeyboardAvoidingView, Text } from 'react-native'
+import { KeyboardAvoidingView, Text, View } from 'react-native'
 
 import MessagesList from './MessagesList'
 import MessageForm from './MessageForm'
+import Balance from './Balance'
 
 import styles from './Styles'
 
@@ -11,8 +12,8 @@ const ChatScreenComponent = () =>
     style={styles.container}
     behavior='padding'
     keyboardVerticalOffset={90}>
-    {/* <BalanceDisplay /> */}
-    <MessagesList />
+    <Balance />
+    <MessagesList style={{flex: 3}}/>
     <MessageForm />
   </KeyboardAvoidingView>
 
