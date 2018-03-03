@@ -9,6 +9,7 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   balanceAmount: {
-    fontSize: 40
+    fontSize: 40,
+    fontWeight: 'bold'
   }
 })

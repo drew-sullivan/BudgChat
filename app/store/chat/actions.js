@@ -11,6 +11,7 @@ export const sendMessage = message => {
     let currentUser = firebaseService.auth().currentUser
     let createdAt = new Date().getTime()
     let chatMessage = {
+      key: `${currentUser.uid}--${createdAt}`,
       text: message,
       createdAt: createdAt,
       user: {
