@@ -11,10 +11,6 @@ const ChatScreenComponent = () =>
     style={styles.container}
     behavior='padding'
     keyboardVerticalOffset={90}>
-    <Button
-      title="Go to Transactions"
-      onPress={() => this.props.navigation.navigate('Transactions')}
-    />
     <MessagesList />
     {/* <MessageForm /> */}
   </KeyboardAvoidingView>
