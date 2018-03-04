@@ -1,10 +1,8 @@
 import React from 'react'
-import { KeyboardAvoidingView, Text, View } from 'react-native'
+import { KeyboardAvoidingView, Text, View, Button } from 'react-native'
 
 import MessagesList from './MessagesList'
 import MessageForm from './MessageForm'
-import Balance from './Balance'
-import AuthTabs from './AuthTabs'
 
 import styles from './Styles'
 
@@ -13,9 +11,11 @@ const ChatScreenComponent = () =>
     style={styles.container}
     behavior='padding'
     keyboardVerticalOffset={90}>
-    <Balance />
-    <AuthTabs />
-    <MessagesList style={{flex: 3}}/>
+    <Button
+      title="Go to Transactions"
+      onPress={() => this.props.navigation.navigate('Transactions')}
+    />
+    <MessagesList />
     {/* <MessageForm /> */}
   </KeyboardAvoidingView>
 
