@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TextInput, TouchableOpacity, Image, Alert } from 'react-native'
+import { View, TextInput, TouchableOpacity, Image, Alert, Picker } from 'react-native'
 import PropTypes from 'prop-types'
 
 import translations from '../../../../i18n'
@@ -40,7 +40,7 @@ class MessageFormComponent extends Component {
         <TextInput
           style={styles.textInput}
           placeholder={translations.t('message')}
-          returnKeyType='send'
+          returnKeyType='next'
           onChangeText={this.handleMessageChange}
           value={this.props.message}
           underlineColorAndroid={'transparent'}

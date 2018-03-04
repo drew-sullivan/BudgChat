@@ -15,9 +15,6 @@ class MessagesListContainer extends Component {
 
   render() {
     const data = getChatItems(this.props.messages);
-    for (let i = 0; i < data.length; i++) {
-      console.log(data[i]);
-    }
     return (
       <MessageListComponent
         data={data} />
