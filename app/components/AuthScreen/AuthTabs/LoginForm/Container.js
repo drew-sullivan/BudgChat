@@ -8,12 +8,10 @@ import { loginUser } from '../../../../store/session'
 
 import LoginFormComponent from './Component'
 
-import translations from '../../../../i18n'
-
 class LoginFormContainer extends Component {
 
   static navigationOptions = {
-    tabBarLabel: translations.t('login'),
+    tabBarLabel: 'Login',
     tabBarIcon: ({ tintColor }) => (
       <Image
         source={require('../../../../images/ic_person_outline.png')}

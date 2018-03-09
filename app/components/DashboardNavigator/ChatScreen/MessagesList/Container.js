@@ -14,7 +14,7 @@ class MessagesListContainer extends Component {
   }
 
   render() {
-    const data = getChatItems(this.props.messages);
+    const data = getChatItems(this.props.messages).reverse();
     return (
       <MessageListComponent
         data={data} />

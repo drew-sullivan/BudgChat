@@ -3,11 +3,9 @@ import PropTypes from 'prop-types'
 
 import BasicForm from '../BasicForm'
 
-import translations from '../../../../i18n'
-
 const SignUpFormComponent = props =>
   <BasicForm
-    buttonTitle={translations.t('signup')}
+    buttonTitle={'Signup'}
     onButtonPress={props.signup} />
 
 SignUpFormComponent.propTypes = {

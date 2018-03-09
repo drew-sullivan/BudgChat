@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, TextInput, TouchableOpacity, Text } from 'react-native'
 
-import translations from '../../../../i18n'
-
 import styles from './Styles'
 
 class BasicFormComponent extends Component {
@@ -32,7 +30,7 @@ class BasicFormComponent extends Component {
 
         <TextInput
           style={styles.textInput}
-          placeholder={translations.t('email')}
+          placeholder='Email'
           returnKeyType='next'
           keyboardType='email-address'
           autoCapitalize='none'
@@ -42,7 +40,7 @@ class BasicFormComponent extends Component {
 
         <TextInput
           style={styles.textInput}
-          placeholder={translations.t('password')}
+          placeholder='Password'
           secureTextEntry={true}
           returnKeyType='done'
           onChangeText={this.handlePasswordChange}

@@ -4,11 +4,9 @@ import PropTypes from 'prop-types'
 
 import MessageRow from './MessageRow'
 
-import translations from '../../../../i18n'
-
 import styles from './Styles'
 
-const ITEM_HEIGHT = 50
+const ITEM_HEIGHT = 500
 
 class MessageListComponent extends Component {
 
@@ -21,15 +19,12 @@ class MessageListComponent extends Component {
 
     this.emptyList = () => {
       return (
-        <Text
-          style={styles.placeholder}>
-          {translations.t('placeholder')}
-        </Text>
+        <Text style={styles.placeholder}>Placeholder</Text>
       )
     }
 
     this.itemLayout = (data, index) => (
-      {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
+      {length: 10, offset: 0, index}
     )
   }
 
@@ -53,7 +48,7 @@ class MessageListComponent extends Component {
         renderItem={this.renderItem}
         getItemLayout={this.itemLayout}
         ListEmptyComponent={this.emptyList}
-        inverted />
+        />
     )
   }
 }

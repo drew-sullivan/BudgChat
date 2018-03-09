@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { View, TextInput, TouchableOpacity, Image, Alert, Picker } from 'react-native'
 import PropTypes from 'prop-types'
 
-import translations from '../../../../i18n'
-
 import styles from './Styles'
 
 const OPACITY_ENABLED = 1.0
@@ -25,7 +23,7 @@ class MessageFormComponent extends Component {
 
   componentDidUpdate(prevProps) {
     if (!prevProps.sendingError && this.props.sendingError) {
-      Alert.alert(translations.t('error'), this.props.sendingError)
+      Alert.alert('Error', this.props.sendingError)
     }
   }
 
@@ -39,7 +37,7 @@ class MessageFormComponent extends Component {
 
         <TextInput
           style={styles.textInput}
-          placeholder={translations.t('message')}
+          placeholder='Message'
           returnKeyType='next'
           onChangeText={this.handleMessageChange}
           value={this.props.message}

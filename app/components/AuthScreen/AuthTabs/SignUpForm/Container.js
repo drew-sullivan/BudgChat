@@ -8,14 +8,12 @@ import { signupUser } from '../../../../store/session'
 
 import SignUpFormComponent from './Component'
 
-import translations from '../../../../i18n'
-
 const personImage = require('../../../../images/ic_person_add.png')
 
 class SignUpFormContainer extends Component {
 
   static navigationOptions = {
-    tabBarLabel: translations.t('signup'),
+    tabBarLabel: 'Signup',
     tabBarIcon: ({ tintColor }) => (
       <Image
         source={personImage}
