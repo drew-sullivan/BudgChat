@@ -5,6 +5,7 @@ import MessagesList from './MessagesList'
 import MessageForm from './MessageForm'
 
 import styles from './Styles'
+import AddTransactionButton from './AddTransactionButton/Component';
 
 const ChatScreenComponent = () =>
   <KeyboardAvoidingView
@@ -12,6 +13,7 @@ const ChatScreenComponent = () =>
     behavior='padding'
     keyboardVerticalOffset={90}>
     <MessagesList />
+    <AddTransactionButton />
     {/* <MessageForm /> */}
   </KeyboardAvoidingView>
 

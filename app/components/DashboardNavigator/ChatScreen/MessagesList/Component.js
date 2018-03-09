@@ -6,8 +6,6 @@ import MessageRow from './MessageRow'
 
 import styles from './Styles'
 
-const ITEM_HEIGHT = 500
-
 class MessageListComponent extends Component {
 
   constructor() {
@@ -19,7 +17,7 @@ class MessageListComponent extends Component {
 
     this.emptyList = () => {
       return (
-        <Text style={styles.placeholder}>Placeholder</Text>
+        <Text style={styles.placeholder}>Hope you're having a good day!</Text>
       )
     }
 
