@@ -49,7 +49,7 @@ class MessageListComponent extends Component {
         style={styles.container}
         contentContainerStyle={contentContainerStyle}
         data={data}
-        keyExtractor={item => item.time}
+        keyExtractor={item => item.createdAt}
         renderItem={this.renderItem}
         getItemLayout={this.itemLayout}
         ListEmptyComponent={this.emptyList}

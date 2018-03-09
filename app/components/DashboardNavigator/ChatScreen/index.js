@@ -9,3 +9,17 @@ export { default } from './Container'
 // }
 
 // export default StackNavigator(routeConfig)
+
+
+
+
+//  ** ORIGINAL: **
+// import { StackNavigator } from 'react-navigation'
+
+// import ChatScreen from './ChatScreen'
+
+// const routeConfig = {
+//   Chat: { screen: ChatScreen }
+// }
+
+// export default StackNavigator(routeConfig)
