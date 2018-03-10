@@ -1,5 +1,6 @@
 import React from 'react'
 import { KeyboardAvoidingView, Text, View, Button } from 'react-native'
+import { StackNavigator } from 'react-navigation';
 
 import MessagesList from './MessagesList'
 import MessageForm from './MessageForm'
@@ -14,6 +15,11 @@ const ChatScreenComponent = () =>
     keyboardVerticalOffset={90}>
     <MessagesList />
     <AddTransactionButton />
+    <Text>{this.props.test}</Text>
+    <Button
+      title="Go to newTransaction"
+      onPress={() => this.props.navigation.navigate('Transaction')}
+    />
     {/* <MessageForm /> */}
   </KeyboardAvoidingView>
 

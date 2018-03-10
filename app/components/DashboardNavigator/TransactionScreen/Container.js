@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image } from 'react-native'
+import { Image, Button } from 'react-native'
 
 import TransactionScreen from './Component'
 
@@ -8,18 +8,24 @@ const moneyTransferImage = require('../../../images/icons8-initiate-money-transf
 class TransactionScreenContainer extends Component {
 
   static navigationOptions = {
-    title: 'Transactions',
-    tabBarIcon: ({ tintColor }) => (
-      <Image
-        source={moneyTransferImage}
-        style={{tintColor: tintColor}}
-      />
-    )
+    title: 'New Transaction',
+    headerRight: <Button
+      onPress={() => {
+        Alert.alert('You tapped the button!');
+      }}
+      title="Press Me"
+    />
   }
 
   render() {
     return (
-      <TransactionScreen />
+      <TransactionScreen>
+        <Button
+          title="Go to Details"
+          onPress={() => this.props.navigation.navigate('Details')}
+        />
+        {/* YOU NEED TO BE ABLE TO PASS THE PROPS DOWN TO THE CHILD (UI) COMPONENT */}
+      </TransactionScreen>
     )
   }
 }

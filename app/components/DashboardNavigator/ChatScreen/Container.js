@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { StackNavigator } from 'react-navigation';
+
 import ChatScreen from './Component'
 import LogoutButton from './LogoutButton'
 
@@ -12,7 +14,7 @@ class ChatScreenContainer extends Component {
 
   render() {
     return (
-      <ChatScreen />
+      <ChatScreen test={nav}/>
     )
   }
 }
