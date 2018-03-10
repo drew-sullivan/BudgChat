@@ -4,9 +4,13 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 60,
-    marginTop: 40,
+    flexDirection: 'row',
+    marginBottom: 80,
+    marginTop: 20,
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent:'center'
+  },
+  button: {
+    marginLeft: 15
   }
 })

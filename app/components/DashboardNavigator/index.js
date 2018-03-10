@@ -6,7 +6,7 @@ import NewTransactionScreen from './NewTransactionScreen'
 export default StackNavigator(
   {
     Transactions: { screen: TransactionScreen },
-    NewTransaction: { screen: NewTransactionScreen },
+    NewTransaction: { screen: NewTransactionScreen }
   },
   {
     initialRouteName: 'Transactions',
