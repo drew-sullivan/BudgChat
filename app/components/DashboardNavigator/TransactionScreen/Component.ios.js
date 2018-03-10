@@ -9,12 +9,9 @@ import styles from './Styles'
 import NewTransactionButton from './NewTransactionButton/Component';
 
 const TransactionScreenComponent = (props) =>
-  <KeyboardAvoidingView
-    style={styles.container}
-    behavior='padding'
-    keyboardVerticalOffset={90}>
+  <View style={styles.container}>
     <MessagesList />
     <NewTransactionButton navigation={props.navigation}/>
-  </KeyboardAvoidingView>
+  </View>
 
 export default TransactionScreenComponent

@@ -8,17 +8,10 @@ const moneyTransferImage = require('../../../images/icons8-initiate-money-transf
 class NewTransactionScreenContainer extends Component {
 
   static navigationOptions = {
-    title: 'New Transaction',
-    headerRight: <Button
-      onPress={() => {
-        Alert.alert('You tapped the button!');
-      }}
-      title="Press Me"
-    />
+    title: 'New Transaction'
   }
 
   render() {
-    console.log(this.props.navigation)
     return (
       <NewTransactionScreen navigation={this.props.navigation} />
     )
