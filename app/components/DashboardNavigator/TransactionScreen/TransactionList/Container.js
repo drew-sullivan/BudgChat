@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import { loadMessages } from '../../../../store/chat/actions'
 import { getChatItems } from '../../../../store/chat/selectors'
 
-import MessageListComponent from './Component'
+import TransactionListComponent from './Component'
 
-class MessagesListContainer extends Component {
+class TransactionListContainer extends Component {
 
   componentDidMount() {
     this.props.loadMessages()
@@ -16,7 +16,7 @@ class MessagesListContainer extends Component {
   render() {
     const data = getChatItems(this.props.messages).reverse();
     return (
-      <MessageListComponent
+      <TransactionListComponent
         data={data} />
     )
   }
@@ -31,10 +31,10 @@ const mapDispatchToProps = {
   loadMessages
 }
 
-MessagesListContainer.propTypes = {
+TransactionListContainer.propTypes = {
   messages: PropTypes.object,
   error: PropTypes.string,
   loadMessages: PropTypes.func.isRequired
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MessagesListContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionListContainer)

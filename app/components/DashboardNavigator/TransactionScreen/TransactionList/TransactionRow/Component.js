@@ -6,7 +6,7 @@ import moment from 'moment'
 
 import styles from './Styles'
 
-const MessageRowComponent = props => {
+const TransactionRowComponent = props => {
   const isCurrentUser = props.isCurrentUser
   const username = isCurrentUser ? 'You' : props.message.user.email
   const date = moment(props.message.createdAt).format('dddd, L')
@@ -31,7 +31,7 @@ const MessageRowComponent = props => {
   )
 }
 
-MessageRowComponent.propTypes = {
+TransactionRowComponent.propTypes = {
   isCurrentUser: PropTypes.bool.isRequired,
   message: PropTypes.shape({
     createdAt: PropTypes.number.isRequired,
@@ -42,4 +42,4 @@ MessageRowComponent.propTypes = {
   })
 }
 
-export default MessageRowComponent
+export default TransactionRowComponent

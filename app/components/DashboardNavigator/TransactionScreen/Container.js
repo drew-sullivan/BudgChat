@@ -8,7 +8,7 @@ import LogoutButton from './LogoutButton'
 class TransactionScreenContainer extends Component {
 
   static navigationOptions = {
-    title: 'Chat',
+    title: 'Transactions',
     headerRight: <LogoutButton />
   }
 

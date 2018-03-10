@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import { FlatList, Text, View } from 'react-native'
 import PropTypes from 'prop-types'
 
-import MessageRow from './MessageRow'
+import TransactionRow from './TransactionRow'
 
 import styles from './Styles'
 
-class MessageListComponent extends Component {
+class TransactionListComponent extends Component {
 
   constructor() {
     super()
 
     this.renderItem = ({item}) => {
-      return <MessageRow message={item} />
+      return <TransactionRow message={item} />
     }
 
     this.emptyList = () => {
@@ -51,8 +51,8 @@ class MessageListComponent extends Component {
   }
 }
 
-MessageListComponent.propTypes = {
+TransactionListComponent.propTypes = {
   data: PropTypes.array.isRequired,
 }
 
-export default MessageListComponent
+export default TransactionListComponent

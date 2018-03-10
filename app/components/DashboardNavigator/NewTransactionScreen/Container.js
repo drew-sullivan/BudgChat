@@ -12,8 +12,11 @@ class NewTransactionScreenContainer extends Component {
   }
 
   render() {
+    const { params } = this.props.navigation.state;
     return (
-      <NewTransactionScreen navigation={this.props.navigation} />
+      <NewTransactionScreen
+        navigation={this.props.navigation}
+        addPositiveAmount={params.add} />
     )
   }
 }

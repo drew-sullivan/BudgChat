@@ -2,24 +2,24 @@ import React, { Component } from 'react'
 import { Text, View } from 'react-native';
 import PropTypes from 'prop-types'
 
-import MessageRow from './Component'
+import TransactionRow from './Component'
 
 import firebaseService from '../../../../../services/firebase'
 
-class MessageRowContainer extends Component {
+class TransactionRowContainer extends Component {
 
   render() {
     const isCurrentUser = firebaseService.auth().currentUser.email == this.props.message.user.email;
     return (
-      <MessageRow
+      <TransactionRow
         message={this.props.message}
         isCurrentUser={isCurrentUser}/>
     );
   }
 }
 
-MessageRowContainer.propTypes = {
+TransactionRowContainer.propTypes = {
   message: PropTypes.object.isRequired,
 }
 
-export default MessageRowContainer
+export default TransactionRowContainer
