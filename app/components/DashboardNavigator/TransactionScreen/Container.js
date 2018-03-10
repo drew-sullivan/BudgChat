@@ -18,8 +18,11 @@ class TransactionScreenContainer extends Component {
   }
 
   render() {
+    console.log(this.props.navigation)
     return (
-      <TransactionScreen>
+      <TransactionScreen
+        navigation={this.props.navigation}
+      >
         <Button
           title="Go to Details"
           onPress={() => this.props.navigation.navigate('Details')}
