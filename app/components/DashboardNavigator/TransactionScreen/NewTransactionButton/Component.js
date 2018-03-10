@@ -4,17 +4,13 @@ import { TouchableOpacity, Image, Alert, Text } from 'react-native'
 
 import styles from './Styles'
 
-const AddTransactionButtonComponent = props =>
+const NewTransactionButtonComponent = props =>
   <TouchableOpacity
     style={styles.container}
-    onPress={() => { Alert.alert('You tapped the button!') }}>
+    onPress={() => props.navigation.navigate('NewTransaction')}>
 
     <Image source={require('../../../../images/icons8-initiate-money-transfer-25.png')} />
-    <Text>Add Transaction</Text>
+    <Text>New Transaction</Text>
   </TouchableOpacity>
 
-// AddTransactionButtonComponent.propTypes = {
-//   addTransaction: PropTypes.func.isRequired
-// }
-
-export default AddTransactionButtonComponent
+export default NewTransactionButtonComponent

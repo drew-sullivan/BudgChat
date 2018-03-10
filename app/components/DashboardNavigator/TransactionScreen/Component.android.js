@@ -6,10 +6,10 @@ import MessageForm from './MessageForm'
 
 import styles from './Styles'
 
-const ChatScreenComponent = () =>
+const TransactionScreenComponent = () =>
   <View style={styles.container}>
     <MessagesList />
     <MessageForm />
   </View>
 
-export default ChatScreenComponent
+export default TransactionScreenComponent
