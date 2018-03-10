@@ -4,7 +4,7 @@ import { Text, View, Button } from 'react-native'
 import styles from './Styles'
 
 const NewTransactionScreenComponent = (props) =>
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+  <View style={styles.container}>
     <Text>Calculator-like Screen</Text>
   </View>
 
