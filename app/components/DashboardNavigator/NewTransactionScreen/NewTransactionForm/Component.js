@@ -1,98 +1,58 @@
-import React, { Component } from 'react';
-import { TextInput, View, TouchableOpacity, Alert } from 'react-native';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Input, Item } from 'native-base';
+import React, { Component } from 'react'
+import { AppRegistry, Text, TextInput, View } from 'react-native'
 import PropTypes from 'prop-types'
 
-import { withNavigation } from 'react-navigation';
+import InputButton from './InputButton'
+
+import { withNavigation } from 'react-navigation'
 
 import styles from './Styles'
 
+const BUTTON_OPTIONS = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [0, '00', 'Back']
+];
+
 class NewTransactionFormComponent extends Component {
-
-  constructor() {
-    super()
-
-    this.handleAmountChange = (amount) => {
-      this.props.updateAmount(amount)
-    }
-
-    this.handleButtonPress = () => {
-      this.props.sendTransaction(this.props.amount)
-    }
+  constructor(props) {
+    super(props);
+    this.state = {text: ''};
   }
-
-  componentDidUpdate(prevProps) {
-    if (!prevProps.sendingError && this.props.sendingError) {
-      Alert.alert('Error', this.props.sendingError)
-    }
-  }
-
-
   render() {
+    const len = this.state.text.length
+    let displaySizeStyles = {fontSize: 100}
+    if (len >= 4 && len <= 6) {
+      displaySizeStyles = {fontSize: 80}
+    } else if (len >= 7) {
+      displaySizeStyles = {fontSize: 65}
+    }
     return (
-      <Container style={{width: '100%'}}>
-        <Content>
-        <Item style={{marginTop: 50, marginLeft: '10%', marginRight: '10%', height: 50}}>
-          <Icon active name='logo-usd' />
-          <Input placeholder='0.00'/>
-        </Item>
-        </Content>
-        <Footer>
-          <FooterTab>
-            <Button vertical onPress={() => { this.props.navigation.goBack() }}>
-              <Icon name="close" />
-              <Text>Cancel</Text>
-            </Button>
-            <Button vertical onPress={() => { this.props.navigation.goBack() }}>
-              <Icon name="checkmark" />
-              <Text>Submit</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
-      </Container>
+      <View>
+        <Text style={[displaySizeStyles, {flex: 1, backgroundColor: 'yellow'}]}>${this.state.text}</Text>
+        <View style={{flex: 4, backgroundColor: 'green'}}>
+          {this.renderInputButtons()}
+        </View>
+      </View>
     );
   }
 
-
-
-  // render() {
-  //   const sending = this.props.sending
-  //   const isButtonDisabled = sending
-  //   // const opacity = isButtonDisabled ? OPACITY_DISABLED : OPACITY_ENABLED
-
-  //   return (
-  //     <View>
-  //       {/* <View style={styles.container}>
-  //         <Text style={[styles.dollarSign, styles.input]}>$</Text>
-  //         <TextInput
-  //           autoFocus
-  //           style={[styles.amount, styles.input]}
-  //           placeholder='0.00'
-  //           returnKeyType='next'
-  //           keyboardType='numeric'
-  //           underlineColorAndroid={'transparent'} />
-  //       </View> */}
-  //       <Container style={{width: '100%'}}>
-  //         <Item>
-  //           <Icon active name='logo-usd' />
-  //           <Input placeholder='Icon Textbox'/>
-  //         </Item>
-          // <Footer>
-          //   <FooterTab>
-          //     <Button vertical onPress={() => { this.props.navigation.goBack() }}>
-          //       <Icon name="close" />
-          //       <Text>Cancel</Text>
-          //     </Button>
-          //     <Button vertical onPress={() => { this.props.navigation.goBack() }}>
-          //       <Icon name="checkmark" />
-          //       <Text>Submit</Text>
-          //     </Button>
-          //   </FooterTab>
-          // </Footer>
-  //       </Container>
-  //     </View>
-  //   );
-  // }
+  renderInputButtons() {
+    let views = [];
+    for (var r = 0; r < BUTTON_OPTIONS.length; r++) {
+        let row = BUTTON_OPTIONS[r];
+        let inputRow = [];
+        for (var i = 0; i < row.length; i++) {
+            let input = row[i];
+            inputRow.push(
+                <InputButton value={input} key={r + "-" + i} />
+            );
+        }
+        views.push(<View style={styles.inputRow} key={"row-" + r}>{inputRow}</View>)
+    }
+    return views;
+  }
 }
 
 export default withNavigation(NewTransactionFormComponent)
