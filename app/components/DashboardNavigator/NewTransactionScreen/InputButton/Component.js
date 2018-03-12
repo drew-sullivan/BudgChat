@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 
+import { Container, Button, Icon, Footer, FooterTab } from 'native-base';
+
+
 import styles from './Styles';
 
 export default class InputButton extends Component {
@@ -9,8 +12,17 @@ export default class InputButton extends Component {
       <TouchableHighlight style={styles.inputButton}
         underlayColor="#FF69B4"
         onPress={this.props.onPress}>
-        <Text style={styles.inputButtonText}>{this.props.value}</Text>
+        {this._getContent()}
       </TouchableHighlight>
     )
   }
+
+  _getContent() {
+    if (this.props.value === 'back') {
+      return <Icon style={styles.inputButtonText} name='ios-backspace' />
+    } else {
+      return <Text style={styles.inputButtonText}>{this.props.value}</Text>
+    }
+  }
+
 }
