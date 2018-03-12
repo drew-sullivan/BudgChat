@@ -1,24 +1,9 @@
-import React, { Component } from 'react'
-import { Image, Button } from 'react-native'
+import React from 'react'
 
-import NewTransactionScreen from './Component'
+import NewTransactionForm from './Component'
 
-const moneyTransferImage = require('../../../images/icons8-initiate-money-transfer-25.png')
+const NewTransactionFormContainer = props =>
+  <NewTransactionForm />
 
-class NewTransactionScreenContainer extends Component {
+export default NewTransactionFormContainer
 
-  static navigationOptions = {
-    title: 'New Transaction'
-  }
-
-  render() {
-    const { params } = this.props.navigation.state;
-    return (
-      <NewTransactionScreen
-        navigation={this.props.navigation}
-        addPositiveAmount={params.add} />
-    )
-  }
-}
-
-export default NewTransactionScreenContainer
