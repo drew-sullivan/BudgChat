@@ -68,9 +68,10 @@ class NewTransactionFormComponent extends Component {
 
   _handle00Input(double0) {
     let inputValue
-    if (this.state.inputValue === '0.00') {
+    const len = this._getInputLength()
+    if (this.state.inputValue === '0.00' || len >= MAX_DIGITS_ON_SCREEN) {
       return
-    } else if (this._getInputLength() >= (MAX_DIGITS_ON_SCREEN - 1)) {
+    } else if (len === (MAX_DIGITS_ON_SCREEN - 1)) {
       inputValue = ((this.state.inputValue * 10) + 0).toFixed(2)
     } else {
       inputValue = ((this.state.inputValue * 100) + 0).toFixed(2)
