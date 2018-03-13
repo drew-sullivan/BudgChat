@@ -20,7 +20,7 @@ class NewTransactionFormComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: '0.00'
+      inputValue: '0.00',
     };
   }
 
@@ -94,11 +94,9 @@ class NewTransactionFormComponent extends Component {
   }
 
   _getDisplayFontSize(textLength) {
-    let fontSize = {fontSize: 100}
-    if (textLength >= 4 && textLength <= 6) {
-      fontSize = {fontSize: 80}
-    } else if (textLength >= 7) {
-      fontSize = {fontSize: 60}
+    let fontSize = {fontSize: 85}
+    if (textLength >= 6) {
+      fontSize = {fontSize: 75}
     }
     return fontSize
   }
