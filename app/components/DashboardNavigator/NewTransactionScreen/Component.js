@@ -8,6 +8,7 @@ import { withNavigation } from 'react-navigation'
 
 import styles from './Styles'
 
+const MAX_DIGITS_ON_SCREEN = 7
 const BUTTON_VALUES = [
   [1, 2, 3],
   [4, 5, 6],
@@ -59,30 +60,35 @@ class NewTransactionFormComponent extends Component {
     if (this.state.inputValue < 0.1) {
       inputValue = '0.00'
     } else {
-      // Lops off the farthest-right digit (without rounding)
-      inputValue = Math.floor((this.state.inputValue / 10) * 100) / 100
+      // Lops off the farthest-right digit (without rounding) and includes a trailing zero -- ex. 0.10
+      inputValue = (Math.floor((this.state.inputValue / 10) * 100) / 100).toFixed(2)
     }
     this.setState({ inputValue })
   }
 
   _handle00Input(double0) {
-    if (this._getInputLength() >= 6) {
+    let inputValue
+    if (this.state.inputValue === '0.00') {
       return
+    } else if (this._getInputLength() >= (MAX_DIGITS_ON_SCREEN - 1)) {
+      inputValue = ((this.state.inputValue * 10) + 0).toFixed(2)
     } else {
-      let inputValue = (this.state.inputValue * 100) + 0
-      this.setState({ inputValue })
+      inputValue = ((this.state.inputValue * 100) + 0).toFixed(2)
     }
+    this.setState({ inputValue })
   }
 
   _handleNumberInput(num) {
     let inputValue
-    const currentValue = this.state.inputValue
-    if (currentValue === '0.00') {
+    if (this.state.inputValue === '0.00') {
+      if (num === 0) {
+        return
+      }
       inputValue = num / 100
-    } else if (this._getInputLength() >= 7) {
+    } else if (this._getInputLength() >= MAX_DIGITS_ON_SCREEN) {
       return
     } else {
-      inputValue = ((currentValue * 10) + (num / 100)).toFixed(2)
+      inputValue = ((this.state.inputValue * 10) + (num / 100)).toFixed(2)
     }
     this.setState({ inputValue })
   }
