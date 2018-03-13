@@ -19,7 +19,7 @@ class NewTransactionFormComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: 0
+      inputValue: '0.00'
     };
   }
 
@@ -55,12 +55,12 @@ class NewTransactionFormComponent extends Component {
   }
 
   _handleBack(input) {
-    let inputValue = this.state.inputValue
-    if (inputValue < 10) {
-      inputValue = 0
-    }
-    if (inputValue >= 10) {
-      inputValue = Math.floor((this.state.inputValue / 10))
+    let inputValue
+    if (this.state.inputValue < 0.1) {
+      inputValue = '0.00'
+    } else {
+      // Lops off the farthest-right digit (without rounding)
+      inputValue = Math.floor((this.state.inputValue / 10) * 100) / 100
     }
     this.setState({ inputValue })
   }
@@ -75,12 +75,16 @@ class NewTransactionFormComponent extends Component {
   }
 
   _handleNumberInput(num) {
-    if (this._getInputLength() >= 7) {
+    let inputValue
+    const currentValue = this.state.inputValue
+    if (currentValue === '0.00') {
+      inputValue = num / 100
+    } else if (this._getInputLength() >= 7) {
       return
     } else {
-      let inputValue = (this.state.inputValue * 10) + num
-      this.setState({ inputValue })
+      inputValue = ((currentValue * 10) + (num / 100)).toFixed(2)
     }
+    this.setState({ inputValue })
   }
 
   _getDisplayFontSize(textLength) {
@@ -88,7 +92,7 @@ class NewTransactionFormComponent extends Component {
     if (textLength >= 4 && textLength <= 6) {
       fontSize = {fontSize: 80}
     } else if (textLength >= 7) {
-      fontSize = {fontSize: 65}
+      fontSize = {fontSize: 60}
     }
     return fontSize
   }
