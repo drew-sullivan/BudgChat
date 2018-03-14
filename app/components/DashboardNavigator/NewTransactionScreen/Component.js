@@ -8,6 +8,9 @@ import { withNavigation } from 'react-navigation'
 
 import styles from './Styles'
 
+const OPACITY_ENABLED = 1.0
+const OPACITY_DISABLED = 0.2
+
 const MAX_DIGITS_ON_SCREEN = 7
 const BUTTON_VALUES = [
   [1, 2, 3],
@@ -21,6 +24,9 @@ class NewTransactionFormComponent extends Component {
     super(props);
     this.state = {
       inputValue: '0.00',
+      has6Digits: false,
+      has7Digits: false,
+      isZero: true
     };
   }
 
@@ -109,12 +115,31 @@ class NewTransactionFormComponent extends Component {
       let buttonRow = [];
       for (let j = 0; j < row.length; j++) {
         let buttonValue = row[j];
-        buttonRow.push(
-          <InputButton
-            value={buttonValue}
-            key={`${i}-${j}`}
-            onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
-        );
+        if (buttonValue === 'back') {
+          buttonRow.push(
+            <InputButton
+              value={buttonValue}
+              key={`${i}-${j}`}
+              opacity={ this.state.isZero ? OPACITY_DISABLED : OPACITY_ENABLED }
+              onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
+          );
+        } else if (buttonValue === '00') {
+          buttonRow.push(
+            <InputButton
+              value={buttonValue}
+              key={`${i}-${j}`}
+              opacity={ this.state.has6Digits ? OPACITY_DISABLED : OPACITY_ENABLED }
+              onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
+          );
+        } else {
+          buttonRow.push(
+            <InputButton
+              value={buttonValue}
+              key={`${i}-${j}`}
+              opacity={ this.state.has7Digits ? OPACITY_DISABLED : OPACITY_ENABLED }
+              onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
+          );
+        }
       }
       inputPad.push(<View style={styles.inputRow} key={`row-${i}`}>{buttonRow}</View>)
     }
