@@ -129,6 +129,7 @@ class NewTransactionFormComponent extends Component {
             <InputButton
               value={buttonValue}
               key={`${i}-${j}`}
+              disabled={backButtonOff}
               opacity={ backButtonOff ? OPACITY_DISABLED : OPACITY_ENABLED }
               onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
           );
@@ -137,6 +138,7 @@ class NewTransactionFormComponent extends Component {
             <InputButton
               value={buttonValue}
               key={`${i}-${j}`}
+              disabled={double0Off}
               opacity={ double0Off ? OPACITY_DISABLED : OPACITY_ENABLED }
               onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
           );
@@ -145,6 +147,7 @@ class NewTransactionFormComponent extends Component {
             <InputButton
               value={buttonValue}
               key={`${i}-${j}`}
+              disabled={single0Off}
               opacity={ single0Off ? OPACITY_DISABLED : OPACITY_ENABLED }
               onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
           );
@@ -153,6 +156,7 @@ class NewTransactionFormComponent extends Component {
             <InputButton
               value={buttonValue}
               key={`${i}-${j}`}
+              disabled={numberOff}
               opacity={ numberOff ? OPACITY_DISABLED : OPACITY_ENABLED }
               onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
           );
