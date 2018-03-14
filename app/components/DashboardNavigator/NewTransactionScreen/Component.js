@@ -24,9 +24,7 @@ class NewTransactionFormComponent extends Component {
     super(props);
     this.state = {
       inputValue: '0.00',
-      has6Digits: false,
-      has7Digits: false,
-      isZero: true
+      inputValueLength: 1
     };
   }
 
@@ -45,14 +43,15 @@ class NewTransactionFormComponent extends Component {
   }
 
   _onInputButtonPressed(input) {
+    const currentState = this.state
     switch (typeof input) {
       case 'number':
-        return this._handleNumberInput(input)
+        return this._handleNumberInput(input, currentState)
       case 'string':
         if (input === 'back') {
-          return this._handleBack(input)
+          return this._handleBack(currentState)
         } else {
-          return this._handle00Input(input)
+          return this._handle00Input(currentState)
         }
     }
   }
@@ -61,43 +60,47 @@ class NewTransactionFormComponent extends Component {
     return this.state.inputValue.toString().length
   }
 
-  _handleBack(input) {
-    let inputValue
-    if (this.state.inputValue < 0.1) {
+  _handleBack(currentState) {
+    let inputValue = currentState.inputValue
+    let inputValueLength = currentState.inputValueLength
+    if (inputValue < 0.1) {
       inputValue = '0.00'
+      inputValueLength = 1
     } else {
       // Lops off the farthest-right digit (without rounding) and includes a trailing zero -- ex. 0.10
       inputValue = (Math.floor((this.state.inputValue / 10) * 100) / 100).toFixed(2)
+      inputValueLength -= 1
     }
-    this.setState({ inputValue })
+    this.setState({ ...currentState, inputValue, inputValueLength })
   }
 
-  _handle00Input(double0) {
-    let inputValue
-    const len = this._getInputLength()
-    if (this.state.inputValue === '0.00' || len >= MAX_DIGITS_ON_SCREEN) {
+  _handle00Input(currentState) {
+    let inputValue = currentState.inputValue
+    let inputValueLength = currentState.inputValueLength
+    if (inputValueLength >= MAX_DIGITS_ON_SCREEN - 1 || inputValueLength === 1) {
       return
-    } else if (len === (MAX_DIGITS_ON_SCREEN - 1)) {
-      inputValue = ((this.state.inputValue * 10) + 0).toFixed(2)
     } else {
       inputValue = ((this.state.inputValue * 100) + 0).toFixed(2)
+      inputValueLength += 2
     }
-    this.setState({ inputValue })
+    this.setState({ ...currentState, inputValue, inputValueLength })
   }
 
-  _handleNumberInput(num) {
-    let inputValue
-    if (this.state.inputValue === '0.00') {
+  _handleNumberInput(num, currentState) {
+    let inputValue = currentState.inputValue
+    let inputValueLength = currentState.inputValueLength
+    if (inputValue === '0.00') {
       if (num === 0) {
         return
       }
       inputValue = num / 100
-    } else if (this._getInputLength() >= MAX_DIGITS_ON_SCREEN) {
+    } else if (inputValueLength >= MAX_DIGITS_ON_SCREEN) {
       return
     } else {
-      inputValue = ((this.state.inputValue * 10) + (num / 100)).toFixed(2)
+      inputValue = ((inputValue * 10) + (num / 100)).toFixed(2)
     }
-    this.setState({ inputValue })
+    inputValueLength += 1
+    this.setState({ ...currentState, inputValue, inputValueLength })
   }
 
   _getDisplayFontSize(textLength) {
@@ -109,6 +112,12 @@ class NewTransactionFormComponent extends Component {
   }
 
   _renderInputButtons() {
+    const inputValueLength = this.state.inputValueLength
+    const isStartingZeroes = inputValueLength === 1
+    const backButtonOff = isStartingZeroes
+    const double0Off = inputValueLength >= 6 || isStartingZeroes
+    const single0Off = inputValueLength > 6 || isStartingZeroes
+    const numberOff = inputValueLength > 6
     let inputPad = [];
     for (let i = 0; i < BUTTON_VALUES.length; i++) {
       let row = BUTTON_VALUES[i];
@@ -120,7 +129,7 @@ class NewTransactionFormComponent extends Component {
             <InputButton
               value={buttonValue}
               key={`${i}-${j}`}
-              opacity={ this.state.isZero ? OPACITY_DISABLED : OPACITY_ENABLED }
+              opacity={ backButtonOff ? OPACITY_DISABLED : OPACITY_ENABLED }
               onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
           );
         } else if (buttonValue === '00') {
@@ -128,7 +137,15 @@ class NewTransactionFormComponent extends Component {
             <InputButton
               value={buttonValue}
               key={`${i}-${j}`}
-              opacity={ this.state.has6Digits ? OPACITY_DISABLED : OPACITY_ENABLED }
+              opacity={ double0Off ? OPACITY_DISABLED : OPACITY_ENABLED }
+              onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
+          );
+        } else if (buttonValue === 0) {
+          buttonRow.push(
+            <InputButton
+              value={buttonValue}
+              key={`${i}-${j}`}
+              opacity={ single0Off ? OPACITY_DISABLED : OPACITY_ENABLED }
               onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
           );
         } else {
@@ -136,7 +153,7 @@ class NewTransactionFormComponent extends Component {
             <InputButton
               value={buttonValue}
               key={`${i}-${j}`}
-              opacity={ this.state.has7Digits ? OPACITY_DISABLED : OPACITY_ENABLED }
+              opacity={ numberOff ? OPACITY_DISABLED : OPACITY_ENABLED }
               onPress={this._onInputButtonPressed.bind(this, buttonValue)} />
           );
         }
