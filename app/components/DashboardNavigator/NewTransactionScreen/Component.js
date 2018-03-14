@@ -3,6 +3,7 @@ import { AppRegistry, Text, TextInput, View, Alert } from 'react-native'
 import PropTypes from 'prop-types'
 
 import InputButton from './InputButton'
+import ActionButtons from './ActionButtons'
 
 import { withNavigation } from 'react-navigation'
 
@@ -33,10 +34,13 @@ class NewTransactionFormComponent extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.amount}>
-          <Text style={this._getDisplayFontSize(len)}>${this.state.inputValue}</Text>
+          <Text style={[ this._getDisplayFontSize(len), styles.displayText ]}>${this.state.inputValue}</Text>
         </View>
         <View style={styles.input}>
           {this._renderInputButtons()}
+        </View>
+        <View style={styles.actionButtons}>
+          <ActionButtons />
         </View>
       </View>
     );

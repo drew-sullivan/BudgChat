@@ -8,6 +8,9 @@ export default StyleSheet.create({
   },
   inputButtonText: {
     fontSize: 40,
-    color: 'white'
+    color: 'white',
+    textShadowColor: 'black',
+    textShadowOffset: {width: 0, height: 1},
+    textShadowRadius: 0.25
   }
 });
