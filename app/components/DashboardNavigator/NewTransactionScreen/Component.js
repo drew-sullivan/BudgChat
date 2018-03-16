@@ -21,15 +21,20 @@ const BUTTON_VALUES = [
 ];
 
 class NewTransactionFormComponent extends Component {
-  constructor(props) {
-    super(props);
+
+  constructor() {
+    super()
+
     this.state = {
       inputValue: '0.00',
       inputValueLength: 1
-    };
+    }
   }
 
   render() {
+    const { params } = this.props.navigation.state;
+    const isDeposit = params.isDeposit
+    console.log(isDeposit)
     let len = this._getInputLength()
     return (
       <View style={styles.container}>
@@ -40,7 +45,9 @@ class NewTransactionFormComponent extends Component {
           {this._renderInputButtons()}
         </View>
         <View style={styles.actionButtons}>
-          <ActionButtons />
+          <ActionButtons
+            stateSnapshot={+this.state.inputValue}
+            isDeposit />
         </View>
       </View>
     );

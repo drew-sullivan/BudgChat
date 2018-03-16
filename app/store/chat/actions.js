@@ -4,9 +4,6 @@ import firebaseService from '../../services/firebase'
 const FIREBASE_REF_MESSAGES = firebaseService.database().ref('Messages')
 const FIREBASE_REF_MESSAGES_LIMIT = 200
 
-const FIREBASE_REF_TEST = firebaseService.database().ref('Test')
-
-
 export const sendMessage = message => {
   return (dispatch) => {
     dispatch(chatMessageLoading())

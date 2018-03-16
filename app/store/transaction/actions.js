@@ -3,7 +3,7 @@ import firebaseService from '../../services/firebase'
 
 const FIREBASE_REF_TRANSACTIONS = firebaseService.datebase().ref('Transactions')
 
-export const addTransaction = (amount) => {
+export const addTransaction = amount => {
   return (dispatch) => {
     dispatch(transactionLoading())
 
