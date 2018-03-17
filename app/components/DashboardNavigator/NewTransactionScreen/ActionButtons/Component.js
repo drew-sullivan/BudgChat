@@ -12,8 +12,8 @@ class ActionButtonsComponent extends Component {
     super()
 
     this.handleButtonPress = () => {
-      console.log(this.props.stateSnapshot)
-      console.log(this.props.isDeposit)
+      // console.log(this.props.stateSnapshot)
+      // console.log(this.props.isDeposit)
       // this.props.addTransaction(this.props.stateSnapshot.inputValue)
     }
 

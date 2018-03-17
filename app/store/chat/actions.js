@@ -12,7 +12,7 @@ export const sendMessage = message => {
     let createdAt = new Date().getTime()
     let chatMessage = {
       text: message,
-      createdAt: createdAt,
+      createdAt,
       user: {
         id: currentUser.uid,
         email: currentUser.email

@@ -1,9 +1,11 @@
 import * as types from './actionTypes'
 import firebaseService from '../../services/firebase'
 
-const FIREBASE_REF_TRANSACTIONS = firebaseService.datebase().ref('Transactions')
+const FIREBASE_REF_TRANSACTIONS = firebaseService.datebase().ref('Messages')
 
-export const addTransaction = amount => {
+console.log(FIREBASE_REF_TRANSACTIONS)
+
+export const sendTransaction = inputValue => {
   return (dispatch) => {
     dispatch(transactionLoading())
 
@@ -11,12 +13,13 @@ export const addTransaction = amount => {
     let createdAt = new Date().getTime()
     let transaction = {
       createdAt,
-      amount,
+      inputValue,
       user: {
         id: currentUser.uid,
         email: currentUser.email
       }
     }
+
 
     FIREBASE_REF_TRANSACTIONS.push().set(transaction, (error) => {
       if (error) {
@@ -28,9 +31,9 @@ export const addTransaction = amount => {
   }
 }
 
-export const updateTransaction = (amount) => {
+export const updateTransaction = inputValue => {
   return (dispatch) => {
-    dispatch(chatUpdateMessage(amount))
+    dispatch(transactionUpdateTransaction(inputValue))
   }
 }
 
@@ -38,16 +41,16 @@ const transactionLoading = () => ({
   type: types.TRANSACTION_LOADING
 })
 
+const transactionSuccess = () => ({
+  type: types.TRANSACTION_SUCCESS
+})
+
 const transactionError = error => ({
   type: types.TRANSACTION_ERROR,
   error
 })
 
-const transactionSuccess = () => ({
-  type: types.TRANSACTION_SUCCESS
-})
-
-const updateTransaction = (isPositive, amount) => ({
-  type: types.TRANSACTION_UPDATE
-
+const transactionUpdateTransaction = inputValue => ({
+  type: types.TRANSACTION_UPDATE,
+  inputValue
 })

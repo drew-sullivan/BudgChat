@@ -3,22 +3,30 @@ import * as types from './actionTypes'
 const initialState = {
   sending: false,
   sendingError: null,
-  amount: 0
+  inputValue: 0,
+  transactions: {},
+  loadTransactionsError: null
 }
 
-const transactionState = (state = initialState, action) => {
+const transaction = (state = initialState, action) => {
   switch(action.type) {
     case types.TRANSACTION_LOADING:
       return { ...state, sending: true, sendingError: null }
-    case types.TRANSACTION_SUCCESS:
-      return { ...state, sending: false, sendingError: null, amount: 0 }
     case types.TRANSACTION_ERROR:
       return { ...state, sending: false, sendingError: action.error }
+    case types.TRANSACTION_SUCCESS:
+      return { ...state, sending: false, sendingError: null, inputValue: 0 }
     case types.TRANSACTION_UPDATE:
-      return { ...state, sending: false, amount: action.amount, sendingError: null }
+      return { ...state, sending: false, inputValue: action.inputValue, sendingError: null }
+    case types.LOAD_TRANSACTIONS_SUCCESS:
+      return { ...state, transactions: action.transactions, loadTransactionsError: null }
+    case types.LOAD_TRANSACTIONS_ERROR:
+      return { ...state, transactions: null, loadTransactionsError: action.error }
     default:
       return state
   }
 }
 
-export default transactionState
+export default transaction
+
+

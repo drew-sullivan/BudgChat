@@ -32,6 +32,16 @@ class NewTransactionFormComponent extends Component {
   }
 
   render() {
+
+    console.log(`sending: ${this.props.sending}`)
+    console.log(`sendTransaction: ${this.props.sendTransaction}`)
+    console.log(`updateTransaction: ${this.props.updateTransaction}`)
+    console.log(`inputValue: ${this.props.inputValue}`)
+    console.log(`sendingError: ${this.props.sendingError}`)
+
+
+
+
     const { params } = this.props.navigation.state;
     const isDeposit = params.isDeposit
     console.log(isDeposit)

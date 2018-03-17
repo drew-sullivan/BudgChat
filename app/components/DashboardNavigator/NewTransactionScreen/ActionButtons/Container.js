@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 import ActionButtonsComponent from './Component'
 
-const ActionButtonsContainer = (props) =>
+const ActionButtonsContainer = props =>
   <ActionButtonsComponent
     stateSnapshot={props.stateSnapshot}
     isDeposit={props.isDeposit} />
