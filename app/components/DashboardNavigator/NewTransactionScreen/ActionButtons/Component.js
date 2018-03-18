@@ -30,7 +30,7 @@ class ActionButtonsComponent extends Component {
       <Container style={styles.container}>
         <Footer>
           <FooterTab>
-            <Button vertical onPress={() => this.props.navigation.goBack()}>
+            <Button vertical onPress={() => this.props.navigation.goBack()} style={styles.button}>
               <Icon name="ios-close" />
               <Text>Cancel</Text>
             </Button>

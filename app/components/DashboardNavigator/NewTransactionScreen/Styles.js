@@ -3,37 +3,37 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#d3d3d3',
     display: 'flex',
     flexDirection: 'column'
   },
   amount: {
-    flex: 2,
+    flex: 4,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#E91E63',
   },
   input: {
-    flex: 2,
-    marginTop: 20,
-    marginLeft: 40,
-    marginRight: 40,
-    marginBottom: 40
+    flex: 4,
+    backgroundColor: '#FFFFFF',
   },
   inputRow: {
     flex: 1,
     flexDirection: 'row'
   },
   displayText: {
-    color: 'white',
-    fontWeight: '200',
-    textShadowColor: 'black',
-    textShadowOffset: {width: 0, height: 1},
-    textShadowRadius: 0.25
+    color: '#FFFFFF'
   },
   actionButtons: {
-    flex: .59,
-    borderWidth: 1,
-    borderColor: '#d6d7da',
-    justifyContent: 'center'
+    flex: 1
   }
 })
+
+
+// .dark-primary-color    { background: #C2185B; }
+// .default-primary-color { background: #E91E63; }
+// .light-primary-color   { background: #F8BBD0; }
+// .text-primary-color    { color: #FFFFFF; }
+// .accent-color          { background: #00BCD4; }
+// .primary-text-color    { color: #212121; }
+// .secondary-text-color  { color: #757575; }
+// .divider-color         { border-color: #BDBDBD; }

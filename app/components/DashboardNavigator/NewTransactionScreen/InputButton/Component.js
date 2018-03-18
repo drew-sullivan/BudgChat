@@ -3,7 +3,6 @@ import { View, Text, TouchableHighlight } from 'react-native';
 
 import { Container, Button, Icon, Footer, FooterTab } from 'native-base';
 
-
 import styles from './Styles';
 
 export default class InputButton extends Component {
@@ -11,7 +10,7 @@ export default class InputButton extends Component {
     return (
       <TouchableHighlight style={[styles.inputButton, {opacity: this.props.opacity}]}
         disabled={this.props.disabled}
-        underlayColor="#d3d3d3"
+        underlayColor="#BDBDBD"
         onPress={this.props.onPress}>
         {this._getContent()}
       </TouchableHighlight>
