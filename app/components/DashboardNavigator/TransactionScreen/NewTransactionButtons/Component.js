@@ -8,11 +8,11 @@ const NewTransactionButtonComponent = props =>
   <Container style={styles.container}>
     <Footer>
       <FooterTab>
-        <Button vertical onPress={() => props.navigation.navigate('NewTransaction',{ isDeposit: true })}>
+        <Button vertical onPress={() => props.navigation.navigate('NewTransaction', { isDeposit: true })}>
           <Icon name="arrow-round-up" />
           <Text>Make a Deposit</Text>
         </Button>
-        <Button vertical onPress={() => props.navigation.navigate('NewTransaction',{ isDeposit: false })}>
+        <Button vertical onPress={() => props.navigation.navigate('NewTransaction', { isDeposit: false })}>
           <Icon name="arrow-round-down" />
           <Text>Make a Withdraw</Text>
         </Button>

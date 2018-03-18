@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { AppRegistry, Text, TextInput, View, Alert } from 'react-native'
 import PropTypes from 'prop-types'
+
+import { withNavigation } from 'react-navigation'
 
 import InputButton from './InputButton'
 import ActionButtons from './ActionButtons'
 
-import { withNavigation } from 'react-navigation'
+import { updateTransaction } from '../../../store/transaction'
 
 import styles from './Styles'
 
@@ -29,23 +32,16 @@ class NewTransactionFormComponent extends Component {
       inputValue: '0.00',
       inputValueLength: 1
     }
+
+    this.handleTransactionChange = inputValue => {
+      this.props.updateTransaction(inputValue)
+    }
   }
 
   render() {
-
-    console.log(`sending: ${this.props.sending}`)
-    console.log(`sendTransaction: ${this.props.sendTransaction}`)
-    console.log(`updateTransaction: ${this.props.updateTransaction}`)
-    console.log(`inputValue: ${this.props.inputValue}`)
-    console.log(`sendingError: ${this.props.sendingError}`)
-
-
-
-
+    let len = this._getInputLength()
     const { params } = this.props.navigation.state;
     const isDeposit = params.isDeposit
-    console.log(isDeposit)
-    let len = this._getInputLength()
     return (
       <View style={styles.container}>
         <View style={styles.amount}>
@@ -55,9 +51,8 @@ class NewTransactionFormComponent extends Component {
           {this._renderInputButtons()}
         </View>
         <View style={styles.actionButtons}>
-          <ActionButtons
-            stateSnapshot={+this.state.inputValue}
-            isDeposit />
+          <ActionButtons onPress={this.handleTransactionChange(this.state.inputValue)} />
+          {/* <ActionButtons inputValue={isDeposit ? +this.state.inputValue : +this.state.inputValue * -1} /> */}
         </View>
       </View>
     );
@@ -190,4 +185,13 @@ class NewTransactionFormComponent extends Component {
 
 }
 
+const mapStateToProps = state => ({
+  inputValue: state.transaction.inputValue
+})
+
+const mapDispatchToProps = {
+  updateTransaction
+}
+
+// export default connect(mapStateToProps, mapDispatchToProps)(NewTransactionFormComponent)
 export default withNavigation(NewTransactionFormComponent)

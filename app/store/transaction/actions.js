@@ -1,9 +1,7 @@
 import * as types from './actionTypes'
 import firebaseService from '../../services/firebase'
 
-const FIREBASE_REF_TRANSACTIONS = firebaseService.datebase().ref('Messages')
-
-console.log(FIREBASE_REF_TRANSACTIONS)
+const FIREBASE_REF_TRANSACTIONS = firebaseService.database().ref('Transactions')
 
 export const sendTransaction = inputValue => {
   return (dispatch) => {

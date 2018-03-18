@@ -2,13 +2,31 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-// import { }
+import { sendTransaction } from '../../../../store/transaction'
 
 import ActionButtonsComponent from './Component'
 
 const ActionButtonsContainer = props =>
   <ActionButtonsComponent
-    stateSnapshot={props.stateSnapshot}
-    isDeposit={props.isDeposit} />
+    finalValue={props.inputValue}
+    sendTransaction={props.sendTransaction}
+    sendingError={props.sendingError}
+    />
 
-export default ActionButtonsContainer
+const mapStateToProps = state => ({
+  sending: state.transaction.sending,
+  sendingError: state.transaction.sendingError,
+  inputValue: state.transaction.inputValue
+})
+
+const mapDispatchToProps = {
+  sendTransaction
+}
+
+ActionButtonsContainer.propTypes = {
+  sendTransaction: PropTypes.func.isRequired,
+  inputValue: PropTypes.number.isRequired,
+  sendingError: PropTypes.string
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ActionButtonsContainer)
