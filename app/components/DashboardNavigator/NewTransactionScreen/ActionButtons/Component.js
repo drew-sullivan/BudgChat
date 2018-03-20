@@ -11,21 +11,12 @@ class ActionButtonsComponent extends Component {
   constructor() {
     super()
 
-    // this.handle
-
     this.handleButtonPress = () => {
-      console.log(`DREW!!!  inputValue: ${this.props.finalValue}`)
-      // this.props.sendTransaction(this.props.stateSnapshot.inputValue)
+      this.props.sendTransaction(this.props.num)
     }
   }
 
   render() {
-
-    // console.log(`sendTransaction: ${this.props.sendTransaction}`)
-    // console.log(`updateTransaction: ${this.props.updateTransaction}`)
-    // console.log(`inputValue: ${this.props.inputValue}`)
-    // console.log(`sendingError: ${this.props.sendingError}`)
-
     return (
       <Container style={styles.container}>
         <Footer>

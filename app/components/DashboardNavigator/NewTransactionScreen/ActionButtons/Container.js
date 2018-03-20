@@ -8,15 +8,16 @@ import ActionButtonsComponent from './Component'
 
 const ActionButtonsContainer = props =>
   <ActionButtonsComponent
-    // finalValue={props.inputValue}
-    sendTransaction={props.sendTransaction}
+    num={props.num}
+    sending={props.sending}
     sendingError={props.sendingError}
-    />
+    inputValue={props.inputValue}
+    sendTransaction={props.sendTransaction} />
 
 const mapStateToProps = state => ({
   sending: state.transaction.sending,
   sendingError: state.transaction.sendingError,
-  // inputValue: state.transaction.inputValue
+  inputValue: state.transaction.inputValue
 })
 
 const mapDispatchToProps = {
@@ -25,7 +26,7 @@ const mapDispatchToProps = {
 
 ActionButtonsContainer.propTypes = {
   sendTransaction: PropTypes.func.isRequired,
-  // inputValue: PropTypes.number.isRequired,
+  inputValue: PropTypes.number.isRequired,
   sendingError: PropTypes.string
 }
 

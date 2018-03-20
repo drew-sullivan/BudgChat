@@ -4,6 +4,7 @@ import firebaseService from '../../services/firebase'
 const FIREBASE_REF_TRANSACTIONS = firebaseService.database().ref('Transactions')
 
 export const sendTransaction = inputValue => {
+  console.log('sendTransaction() reached!')
   return (dispatch) => {
     dispatch(transactionLoading())
 

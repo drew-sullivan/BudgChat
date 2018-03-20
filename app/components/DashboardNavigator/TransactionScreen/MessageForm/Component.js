@@ -12,7 +12,7 @@ class MessageFormComponent extends Component {
   constructor() {
     super()
 
-    this.handleMessageChange = (message) => {
+    this.handleMessageChange = message => {
       this.props.updateMessage(message)
     }
 

@@ -32,10 +32,6 @@ class NewTransactionFormComponent extends Component {
       inputValue: '0.00',
       inputValueLength: 1
     }
-
-    this.handleTransactionChange = inputValue => {
-      this.props.updateTransaction(inputValue)
-    }
   }
 
   render() {
@@ -51,8 +47,7 @@ class NewTransactionFormComponent extends Component {
           {this._renderInputButtons()}
         </View>
         <View style={styles.actionButtons}>
-          <ActionButtons onPress={this.handleTransactionChange(this.state.inputValue)} />
-          {/* <ActionButtons inputValue={isDeposit ? +this.state.inputValue : +this.state.inputValue * -1} /> */}
+          <ActionButtons num={isDeposit ? +this.state.inputValue : +this.state.inputValue * -1} />
         </View>
       </View>
     );
@@ -193,5 +188,4 @@ const mapDispatchToProps = {
   updateTransaction
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(NewTransactionFormComponent)
-export default withNavigation(NewTransactionFormComponent)
+export default withNavigation(connect(mapStateToProps, mapDispatchToProps)(NewTransactionFormComponent));
