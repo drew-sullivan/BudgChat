@@ -7,5 +7,8 @@ export default StyleSheet.create({
     height: 40,
     alignItems: 'center',
     justifyContent:'center'
+  },
+  img: {
+    tintColor: 'white'
   }
 })

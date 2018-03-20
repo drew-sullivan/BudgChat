@@ -25,34 +25,36 @@ class BasicFormComponent extends Component {
 
   render() {
     return (
-      <View
-        style={styles.container}>
+      <View style={styles.container}>
 
-        <TextInput
-          style={styles.textInput}
-          placeholder='Email'
-          returnKeyType='next'
-          keyboardType='email-address'
-          autoCapitalize='none'
-          onChangeText={this.handleEmailChange}
-          value={this.state.email}
-          underlineColorAndroid={'transparent'} />
+        <Text style={styles.title}>TEST</Text>
 
-        <TextInput
-          style={styles.textInput}
-          placeholder='Password'
-          secureTextEntry={true}
-          returnKeyType='done'
-          onChangeText={this.handlePasswordChange}
-          value={this.state.password}
-          underlineColorAndroid={'transparent'} />
+        <View style={styles.formContainer}>
+          <TextInput
+            style={styles.textInput}
+            placeholder='Email'
+            returnKeyType='next'
+            keyboardType='email-address'
+            autoCapitalize='none'
+            onChangeText={this.handleEmailChange}
+            value={this.state.email}
+            underlineColorAndroid={'transparent'} />
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={this.handleButtonPress}>
-          <Text style={styles.buttonTitle}>{this.props.buttonTitle}</Text>
-        </TouchableOpacity>
+          <TextInput
+            style={styles.textInput}
+            placeholder='Password'
+            secureTextEntry={true}
+            returnKeyType='done'
+            onChangeText={this.handlePasswordChange}
+            value={this.state.password}
+            underlineColorAndroid={'transparent'} />
 
+          <TouchableOpacity
+            style={styles.button}
+            onPress={this.handleButtonPress}>
+            <Text style={styles.buttonTitle}>{this.props.buttonTitle}</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     )
   }

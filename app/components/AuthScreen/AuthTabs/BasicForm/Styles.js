@@ -3,27 +3,34 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'stretch',
     justifyContent:'center',
   },
+  title: {
+    color: 'white',
+    fontSize: 20,
+    flex: 4,
+    backgroundColor: 'red',
+    margin: 40,
+  },
+  formContainer: {
+    flex: 5
+  },
   textInput: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FFF',
     height: 40,
     margin: 10,
-    borderRadius: 5,
     padding: 3,
   },
   button: {
-    backgroundColor: '#88cc88',
+    backgroundColor: '#F06292',
     height: 40,
     margin: 10,
-    borderRadius: 5,
     padding: 3,
     alignItems: 'center',
     justifyContent:'center',
   },
   buttonTitle: {
-    color: '#ffffff',
+    color: '#FFF',
     fontSize: 18,
     fontWeight: 'bold',
   }

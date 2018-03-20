@@ -14,8 +14,8 @@ const routeConfigs = {
 
 const tabBarOptions = {
   tabBarOptions: {
-    activeTintColor: '#88cc88',
-    inactiveTintColor: '#aaaaaa',
+    activeTintColor: '#F06292',
+    inactiveTintColor: '#607D8B',
     showIcon: true,
     scrollEnabled: false,
     indicatorStyle: {

@@ -8,6 +8,6 @@ export default StyleSheet.create({
   },
   inputButtonText: {
     fontSize: 40,
-    color: '#212121',
+    color: '#FFFFFF',
   }
 });

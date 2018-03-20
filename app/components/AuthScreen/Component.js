@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { View, Alert } from 'react-native'
+import { View, Alert, Text } from 'react-native'
 
 import AuthTabs from './AuthTabs'
 import LoadingIndicator from './LoadingIndicator'
@@ -18,9 +18,10 @@ class AuthScreenComponent extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <AuthTabs />
+        <AuthTabs style={{}} />
         {this.props.loading && <LoadingIndicator />}
-      </View>)
+      </View>
+    )
   }
 }
 

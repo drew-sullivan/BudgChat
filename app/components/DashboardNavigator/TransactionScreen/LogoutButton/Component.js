@@ -9,7 +9,9 @@ const LogoutButtonComponent = props =>
     style={styles.container}
     onPress={props.logout}>
 
-    <Image source={require('../../../../images/ic_exit_to_app.png')} />
+    <Image
+      source={require('../../../../images/ic_exit_to_app.png')}
+      style={styles.img} />
   </TouchableOpacity>
 
 LogoutButtonComponent.propTypes = {

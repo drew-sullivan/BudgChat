@@ -10,16 +10,16 @@ export default StackNavigator(
   {
     Transactions: { screen: TransactionScreen },
     NewTransaction: {
-      screen: NewTransactionScreen,
-      navigationOptions: {
-        headerTintColor: '#FFFFFF',
-        headerStyle: {
-          backgroundColor: '#C2185B'
-        }
-      }
+      screen: NewTransactionScreen
     }
   },
   {
     initialRouteName: 'Transactions',
+    navigationOptions: {
+      headerTintColor: '#FFFFFF',
+      headerStyle: {
+        backgroundColor: '#F06292'
+      }
+    }
   }
 );
