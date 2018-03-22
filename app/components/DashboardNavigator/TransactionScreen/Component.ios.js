@@ -8,7 +8,7 @@ import NewTransactionButtons from './NewTransactionButtons/Component';
 
 import styles from './Styles'
 
-const TransactionScreenComponent = (props) =>
+const TransactionScreenComponent = props =>
   <View style={styles.container}>
     <TransactionList />
     <NewTransactionButtons navigation={props.navigation}/>

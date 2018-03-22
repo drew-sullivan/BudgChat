@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { COLOR_SCHEME } from '../../../assets/colorScheme'
 
 export default StyleSheet.create({
   container: {
@@ -10,18 +11,18 @@ export default StyleSheet.create({
     flex: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#607D8B'
+    backgroundColor: COLOR_SCHEME.secondary
   },
   input: {
     flex: 4,
-    backgroundColor: '#37474F'
+    backgroundColor: COLOR_SCHEME.secondary
   },
   inputRow: {
     flex: 1,
     flexDirection: 'row'
   },
   displayText: {
-    color: '#FFFFFF'
+    color: COLOR_SCHEME.textDark
   },
   actionButtons: {
     flex: 1

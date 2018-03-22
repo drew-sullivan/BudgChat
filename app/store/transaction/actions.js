@@ -2,6 +2,7 @@ import * as types from './actionTypes'
 import firebaseService from '../../services/firebase'
 
 const FIREBASE_REF_TRANSACTIONS = firebaseService.database().ref('Transactions')
+console.log(FIREBASE_REF_TRANSACTIONS)
 
 export const sendTransaction = inputValue => {
   console.log('sendTransaction() reached!')

@@ -27,27 +27,32 @@ class BasicFormComponent extends Component {
     return (
       <View style={styles.container}>
 
-        <Text style={styles.title}>TEST</Text>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>BudgChat</Text>
+        </View>
 
         <View style={styles.formContainer}>
-          <TextInput
-            style={styles.textInput}
-            placeholder='Email'
-            returnKeyType='next'
-            keyboardType='email-address'
-            autoCapitalize='none'
-            onChangeText={this.handleEmailChange}
-            value={this.state.email}
-            underlineColorAndroid={'transparent'} />
-
-          <TextInput
-            style={styles.textInput}
-            placeholder='Password'
-            secureTextEntry={true}
-            returnKeyType='done'
-            onChangeText={this.handlePasswordChange}
-            value={this.state.password}
-            underlineColorAndroid={'transparent'} />
+          <View style={styles.textInputContainer}>
+            <TextInput
+              style={styles.textInput}
+              placeholder='Email'
+              returnKeyType='next'
+              keyboardType='email-address'
+              autoCapitalize='none'
+              onChangeText={this.handleEmailChange}
+              value={this.state.email}
+              underlineColorAndroid={'transparent'} />
+          </View>
+          <View style={styles.textInputContainer}>
+            <TextInput
+              style={styles.textInput}
+              placeholder='Password'
+              secureTextEntry={true}
+              returnKeyType='done'
+              onChangeText={this.handlePasswordChange}
+              value={this.state.password}
+              underlineColorAndroid={'transparent'} />
+          </View>
 
           <TouchableOpacity
             style={styles.button}

@@ -19,15 +19,15 @@ class ActionButtonsComponent extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        <Footer>
+        <Footer style={styles.buttonContainer}>
           <FooterTab>
             <Button vertical onPress={() => this.props.navigation.goBack()} style={styles.button}>
-              <Icon name="ios-close" />
-              <Text>Cancel</Text>
+              <Icon style={styles.textColor} name="ios-close" />
+              <Text style={styles.textColor}>Cancel</Text>
             </Button>
             <Button vertical onPress={this.handleButtonPress}>
-              <Icon name="ios-checkmark" />
-              <Text>Submit</Text>
+              <Icon style={styles.textColor} name="ios-checkmark" />
+              <Text style={styles.textColor}>Submit</Text>
             </Button>
           </FooterTab>
         </Footer>

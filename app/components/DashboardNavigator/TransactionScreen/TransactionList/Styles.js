@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native'
+import { COLOR_SCHEME } from '../../../../assets/colorScheme'
 
 export default StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#eeeeee'
+    backgroundColor: COLOR_SCHEME.primary,
   },
   flatlistContainerStyle: {
     flexGrow: 1,
@@ -12,7 +13,7 @@ export default StyleSheet.create({
   },
   placeholder: {
     fontSize: 16,
-    color: 'grey',
+    color: COLOR_SCHEME.textDark,
     textAlign: 'center'
   }
 })

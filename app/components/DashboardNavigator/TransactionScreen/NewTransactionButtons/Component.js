@@ -6,15 +6,15 @@ import styles from './Styles'
 
 const NewTransactionButtonComponent = props =>
   <Container style={styles.container}>
-    <Footer>
+    <Footer style={styles.buttonContainer}>
       <FooterTab>
         <Button vertical onPress={() => props.navigation.navigate('NewTransaction', { isDeposit: true })}>
-          <Icon name="arrow-round-up" />
-          <Text>Make a Deposit</Text>
+          <Icon style={styles.textColor} name="arrow-round-up" />
+          <Text style={styles.textColor} >Make a Deposit</Text>
         </Button>
         <Button vertical onPress={() => props.navigation.navigate('NewTransaction', { isDeposit: false })}>
-          <Icon name="arrow-round-down" />
-          <Text>Make a Withdraw</Text>
+          <Icon style={styles.textColor} name="arrow-round-down" />
+          <Text style={styles.textColor}>Make a Withdraw</Text>
         </Button>
       </FooterTab>
     </Footer>

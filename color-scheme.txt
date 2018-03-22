@@ -1,7 +1,0 @@
-.secondary-color       { #607D8B }
-.primary-color         { #37474F }
-.accent-color          { #F06292 }
-.background            { #EDEDED }
-.dark-background       { #9E9E9E }
-.text-primary-light    { #FFFFFF }
-.text-primary-color    { #212121 }

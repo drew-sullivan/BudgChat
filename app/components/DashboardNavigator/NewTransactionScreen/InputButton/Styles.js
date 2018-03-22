@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { COLOR_SCHEME } from '../../../../assets/colorScheme'
 
 export default StyleSheet.create({
   inputButton: {
@@ -8,6 +9,6 @@ export default StyleSheet.create({
   },
   inputButtonText: {
     fontSize: 40,
-    color: '#FFFFFF',
+    color: COLOR_SCHEME.textDark
   }
 });

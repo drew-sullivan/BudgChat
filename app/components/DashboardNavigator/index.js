@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+import { COLOR_SCHEME } from '../../assets/colorScheme'
 
 import { StackNavigator } from 'react-navigation'
 
@@ -16,9 +17,9 @@ export default StackNavigator(
   {
     initialRouteName: 'Transactions',
     navigationOptions: {
-      headerTintColor: '#FFFFFF',
+      headerTintColor: COLOR_SCHEME.secondary,
       headerStyle: {
-        backgroundColor: '#F06292'
+        backgroundColor: COLOR_SCHEME.contrasting
       }
     }
   }

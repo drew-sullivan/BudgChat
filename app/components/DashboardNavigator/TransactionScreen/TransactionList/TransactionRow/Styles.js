@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { COLOR_SCHEME } from '../../../../../assets/colorScheme'
 
 export default StyleSheet.create({
   container: {
@@ -7,14 +8,14 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 0.5,
-    borderColor: '#d6d7da',
+    borderColor: COLOR_SCHEME.textDark,
     justifyContent: 'space-between',
   },
   box: {
     height: 75,
     flexDirection: 'column',
     padding: 10,
-    backgroundColor: 'white',
+    backgroundColor: COLOR_SCHEME.secondary,
     justifyContent: 'space-between',
   },
   leftBox: {
@@ -27,11 +28,14 @@ export default StyleSheet.create({
   },
   textBig: {
     fontSize: 20,
+    color: COLOR_SCHEME.textDark,
   },
   textBold: {
     fontWeight: 'bold',
+    color: COLOR_SCHEME.textDark,
   },
   regularText: {
     fontSize: 12,
+    color: COLOR_SCHEME.textDark,
   },
 })

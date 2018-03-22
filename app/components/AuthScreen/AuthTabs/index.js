@@ -1,4 +1,5 @@
 import { TabNavigator } from 'react-navigation'
+import { COLOR_SCHEME } from '../../../assets/colorScheme'
 
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
@@ -14,15 +15,15 @@ const routeConfigs = {
 
 const tabBarOptions = {
   tabBarOptions: {
-    activeTintColor: '#F06292',
-    inactiveTintColor: '#607D8B',
+    activeTintColor: COLOR_SCHEME.textDark,
+    inactiveTintColor: COLOR_SCHEME.secondary,
     showIcon: true,
     scrollEnabled: false,
     indicatorStyle: {
       display: 'none',
     },
     style: {
-      backgroundColor: '#ffffff',
+      backgroundColor: COLOR_SCHEME.primary,
     },
   },
   tabBarPosition: 'bottom'
