@@ -5,13 +5,10 @@ export default StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     minWidth: '100%',
-    // backgroundColor: '#eeeeee',
-    // borderTopColor: '#cccccc',
     borderTopWidth: 1
   },
   textInput: {
     flex: 1,
-    // backgroundColor: '#ffffff',
     height: 40,
     margin: 10,
     borderRadius: 5,

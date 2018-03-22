@@ -6,9 +6,17 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: 50,
   },
   inputButtonText: {
     fontSize: 40,
-    color: COLOR_SCHEME.textDark
+    color: COLOR_SCHEME.textDark,
+  },
+  pressed: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    backgroundColor: 'pink'
   }
 });
