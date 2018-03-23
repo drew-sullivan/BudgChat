@@ -2,7 +2,7 @@ import * as types from './actionTypes'
 import firebaseService from '../../services/firebase'
 
 const FIREBASE_REF_TRANSACTIONS = firebaseService.database().ref('Transactions')
-console.log(FIREBASE_REF_TRANSACTIONS)
+const FIREBASE_REF_TRANSACTIONS_LIMIT = 200
 
 export const sendTransaction = inputValue => {
   console.log('sendTransaction() reached!')
@@ -20,7 +20,6 @@ export const sendTransaction = inputValue => {
       }
     }
 
-
     FIREBASE_REF_TRANSACTIONS.push().set(transaction, (error) => {
       if (error) {
         dispatch(transactionError(error.message))
@@ -34,6 +33,16 @@ export const sendTransaction = inputValue => {
 export const updateTransaction = inputValue => {
   return (dispatch) => {
     dispatch(transactionUpdateTransaction(inputValue))
+  }
+}
+
+export const loadTransactions = () => {
+  return (dispatch) => {
+    FIREBASE_REF_TRANSACTIONS.limitToLast(FIREBASE_REF_TRANSACTIONS_LIMIT).on('value', (snapshot) => {
+      dispatch(loadTransactionsSuccess(snapshot.val()))
+    }, errorObject => {
+      dispatch(loadTransactionsError(errorObject.transaction))
+    })
   }
 }
 
@@ -53,4 +62,14 @@ const transactionError = error => ({
 const transactionUpdateTransaction = inputValue => ({
   type: types.TRANSACTION_UPDATE,
   inputValue
+})
+
+const loadTransactionsSuccess = transactions => ({
+  type: types.LOAD_TRANSACTIONS_SUCCESS,
+  transactions
+})
+
+const loadTransactionError = error => ({
+  type: types.LOAD_TRANSACTIONS_ERROR,
+  error
 })
