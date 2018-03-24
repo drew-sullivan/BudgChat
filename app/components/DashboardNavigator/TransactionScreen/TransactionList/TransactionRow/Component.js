@@ -13,14 +13,16 @@ const TransactionRowComponent = props => {
   const username = isCurrentUser ? 'You' : props.transaction.user.email
   const date = moment(props.transaction.createdAt).format('dddd, L')
   const inputValue = props.transaction.inputValue
-  const transactionType = inputValue < 0 ? 'Withdrawl' : 'Deposit'
+  const borderLeftColor = inputValue > 0 ? 'green' : 'red'
   return (
     <View style={styles.container}>
-      <View style={[styles.box, styles.leftBox]}>
-        <Text style={styles.textBig}>{transactionType}:
-          {/* <Text style={styles.textBold}> {inputValue}</Text> */}
+      <View style={[styles.box, styles.leftBox, {borderLeftColor}]}>
+        <Text style={styles.textBig}>
           <Text style={styles.textBold}>
-            <NumberFormat value={2456981} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+            {new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(inputValue)}
           </Text>
         </Text>
         <Text style={styles.regularText}>Running Balance:
@@ -30,7 +32,7 @@ const TransactionRowComponent = props => {
       <View style={[styles.box, styles.rightBox]}>
         <Text style={styles.regularText}>{date}</Text>
         <Text style={styles.regularText} numberOfLines={1}>Notes:
-          <Text style={styles.textBold}>[notes]</Text>
+          <Text style={styles.textBold}>&nbsp;[notes]</Text>
         </Text>
         <Text style={styles.regularText}>{username}</Text>
       </View>

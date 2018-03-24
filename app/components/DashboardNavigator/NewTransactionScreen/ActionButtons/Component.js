@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Alert } from 'react-native'
-import { Container, Button, Icon, Text, Footer, FooterTab } from 'native-base';
+import { Container, Button, Icon, Text, Footer, FooterTab } from 'native-base'
 import { withNavigation } from 'react-navigation'
 
 import styles from './Styles'
@@ -12,7 +12,8 @@ class ActionButtonsComponent extends Component {
     super()
 
     this.handleButtonPress = () => {
-      this.props.sendTransaction(this.props.num)
+      this.props.sendTransaction(this.props.num, this.props.total)
+      this.props.navigation.goBack()
     }
   }
 
@@ -28,7 +29,7 @@ class ActionButtonsComponent extends Component {
               <Text style={styles.textColor}>Cancel</Text>
             </Button>
             <Button vertical
-              onPress={this.handleButtonPress} >
+              onPress={this.handleButtonPress}>
               <Icon style={styles.textColor} name="ios-checkmark" />
               <Text style={styles.textColor}>Submit</Text>
             </Button>

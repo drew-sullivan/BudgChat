@@ -35,5 +35,4 @@ ChatAppContainer.propTypes = {
   restore: PropTypes.func.isRequired
 }
 
-// connect provides the current snapshot of the state from the store to mapStateToProps()
 export default connect(mapStateToProps, mapDispatchToProps)(ChatAppContainer)

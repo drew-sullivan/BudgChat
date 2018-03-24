@@ -12,7 +12,6 @@ class TransactionListComponent extends Component {
     super()
 
     this.renderItem = ({item}) => {
-      // return <TransactionRow message={item} />
       return <TransactionRow transaction={item} />
     }
 

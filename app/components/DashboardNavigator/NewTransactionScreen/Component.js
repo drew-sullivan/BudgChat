@@ -38,6 +38,7 @@ class NewTransactionFormComponent extends Component {
     let len = this._getInputLength()
     const { params } = this.props.navigation.state;
     const isDeposit = params.isDeposit
+    // console.log(this.props.total)
     return (
       <View style={styles.container}>
         <View style={styles.amount}>
@@ -47,7 +48,9 @@ class NewTransactionFormComponent extends Component {
           {this._renderInputButtons()}
         </View>
         <View style={styles.actionButtons}>
-          <ActionButtons num={isDeposit ? +this.state.inputValue : +this.state.inputValue * -1} />
+          <ActionButtons
+            num={isDeposit ? +this.state.inputValue : +this.state.inputValue * -1}
+            total={this.props.total} />
         </View>
       </View>
     );

@@ -19,15 +19,16 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   leftBox: {
-    width: '55%',
+    width: '60%',
     alignItems: 'flex-start',
+    borderLeftWidth: 15,
   },
   rightBox: {
-    width: '45%',
+    width: '40%',
     alignItems: 'flex-end',
   },
   textBig: {
-    fontSize: 20,
+    fontSize: 25,
     color: COLOR_SCHEME.textDark,
   },
   textBold: {

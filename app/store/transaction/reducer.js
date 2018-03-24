@@ -5,7 +5,8 @@ const initialState = {
   sendingError: null,
   inputValue: 0,
   transactions: {},
-  loadTransactionsError: null
+  loadTransactionsError: null,
+  total: 0,
 }
 
 const transaction = (state = initialState, action) => {
@@ -15,7 +16,8 @@ const transaction = (state = initialState, action) => {
     case types.TRANSACTION_ERROR:
       return { ...state, sending: false, sendingError: action.error }
     case types.TRANSACTION_SUCCESS:
-      return { ...state, sending: false, sendingError: null, inputValue: 0 }
+      console.log(`Inside reducer: ${action.total}`)
+      return { ...state, sending: false, sendingError: null, inputValue: 0, total: action.total }
     case types.TRANSACTION_UPDATE:
       return { ...state, sending: false, inputValue: action.inputValue, sendingError: null }
     case types.LOAD_TRANSACTIONS_SUCCESS:
@@ -28,5 +30,3 @@ const transaction = (state = initialState, action) => {
 }
 
 export default transaction
-
-

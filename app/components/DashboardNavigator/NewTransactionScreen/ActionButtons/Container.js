@@ -12,12 +12,13 @@ const ActionButtonsContainer = props =>
     sending={props.sending}
     sendingError={props.sendingError}
     inputValue={props.inputValue}
-    sendTransaction={props.sendTransaction} />
+    sendTransaction={props.sendTransaction}
+    total={props.total} />
 
 const mapStateToProps = state => ({
   sending: state.transaction.sending,
   sendingError: state.transaction.sendingError,
-  inputValue: state.transaction.inputValue
+  inputValue: state.transaction.inputValue,
 })
 
 const mapDispatchToProps = {
@@ -27,7 +28,7 @@ const mapDispatchToProps = {
 ActionButtonsContainer.propTypes = {
   sendTransaction: PropTypes.func.isRequired,
   inputValue: PropTypes.number.isRequired,
-  sendingError: PropTypes.string
+  sendingError: PropTypes.string,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActionButtonsContainer)

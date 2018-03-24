@@ -12,11 +12,12 @@ const NewTransactionFormContainer = props =>
     sendTransaction={props.sendTransaction}
     inputValue={props.inputValue}
     sending={props.sending}
-  />
+    total={props.total} />
 
 const mapStateToProps = state => ({
   inputValue: state.transaction.inputValue,
-  sending: state.transaction.sending
+  sending: state.transaction.sending,
+  total: state.transaction.total,
 })
 
 const mapDispatchToProps = {
