@@ -2,21 +2,22 @@ import { StyleSheet } from 'react-native'
 import { COLOR_SCHEME } from '../../../../assets/colorScheme'
 
 export default StyleSheet.create({
-  inputButton: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 50,
-  },
-  inputButtonText: {
+  buttonText: {
     fontSize: 40,
     color: COLOR_SCHEME.textDark,
   },
-  pressed: {
+  buttonTextPressed: {
+    fontSize: 40,
+    color: COLOR_SCHEME.contrasting,
+  },
+  tH: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 50,
-    backgroundColor: 'pink'
-  }
+  },
+  tHPressed: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

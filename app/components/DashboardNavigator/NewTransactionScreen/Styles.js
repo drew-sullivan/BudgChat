@@ -11,11 +11,12 @@ export default StyleSheet.create({
     flex: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: COLOR_SCHEME.secondary
+    backgroundColor: COLOR_SCHEME.secondary,
   },
   input: {
     flex: 4,
-    backgroundColor: COLOR_SCHEME.secondary
+    backgroundColor: COLOR_SCHEME.secondary,
+    paddingBottom: 30,
   },
   inputRow: {
     flex: 1,

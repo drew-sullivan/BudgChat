@@ -26,21 +26,22 @@ export default class InputButton extends Component {
     const active = this.state.pressStatus
     return (
       <TouchableHighlight
-        style={ active ? [styles.pressed, {opacity}] : [styles.inputButton, {opacity}]}
+        style={ active ? [styles.tHPressed, {opacity}] : [styles.tH, {opacity}]}
         disabled={this.props.disabled}
+        underlayColor={COLOR_SCHEME.textDark}
         onPress={this.props.onPress}
         onHideUnderlay={this._onHideUnderlay.bind(this)}
         onShowUnderlay={this._onShowUnderlay.bind(this)} >
-        {this._getContent()}
+        {this._getContent(active)}
       </TouchableHighlight>
     )
   }
 
-  _getContent() {
+  _getContent(active) {
     if (this.props.value === 'back') {
-      return <Icon style={styles.inputButtonText} name='ios-backspace' />
+      return <Icon style={active ? styles.buttonTextPressed : styles.buttonText } name='ios-backspace' />
     } else {
-      return <Text style={styles.inputButtonText}>{this.props.value}</Text>
+      return <Text style={active ? styles.buttonTextPressed : styles.buttonText }>{this.props.value}</Text>
     }
   }
 
