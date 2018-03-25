@@ -14,19 +14,15 @@ const TransactionRowComponent = props => {
   const date = moment(props.transaction.createdAt).format('dddd, L')
   const inputValue = props.transaction.inputValue
   const borderLeftColor = inputValue > 0 ? 'green' : 'red'
+  const newTotal = props.total
   return (
     <View style={styles.container}>
       <View style={[styles.box, styles.leftBox, {borderLeftColor}]}>
         <Text style={styles.textBig}>
-          <Text style={styles.textBold}>
-            {new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD'
-            }).format(inputValue)}
-          </Text>
+          <Text style={styles.textBold}>{_getPrintableNumber(inputValue)}</Text>
         </Text>
         <Text style={styles.regularText}>Running Balance:
-          <Text style={styles.textBold}> $1,500</Text>
+          <Text style={styles.textBold}>{_getPrintableNumber(newTotal)}</Text>
         </Text>
       </View>
       <View style={[styles.box, styles.rightBox]}>
@@ -37,6 +33,15 @@ const TransactionRowComponent = props => {
         <Text style={styles.regularText}>{username}</Text>
       </View>
     </View>
+  )
+}
+
+_getPrintableNumber = (num) => {
+  return (
+    new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    }).format(num)
   )
 }
 

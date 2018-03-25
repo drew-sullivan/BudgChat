@@ -12,7 +12,12 @@ class TransactionListComponent extends Component {
     super()
 
     this.renderItem = ({item}) => {
-      return <TransactionRow transaction={item} />
+      const total = this.props.data[0].newTotal
+      return (
+        <TransactionRow
+          transaction={item}
+          total={total} />
+      )
     }
 
     this.emptyList = () => {
@@ -36,6 +41,7 @@ class TransactionListComponent extends Component {
   render() {
     const data = this.props.data
     const contentContainerStyle = data.length ? null : styles.flatlistContainerStyle
+    // const total = data.length ? data[0].newTotal : null
     return (
       <FlatList
         ref={(c) => { this.flatList = c }}
@@ -46,6 +52,7 @@ class TransactionListComponent extends Component {
         renderItem={this.renderItem}
         getItemLayout={this.itemLayout}
         ListEmptyComponent={this.emptyList}
+        // total={total}
         />
     )
   }

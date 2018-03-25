@@ -4,20 +4,23 @@ import firebaseService from '../../services/firebase'
 const FIREBASE_REF_TRANSACTIONS = firebaseService.database().ref('Transactions')
 const FIREBASE_REF_TRANSACTIONS_LIMIT = 200
 
-export const sendTransaction = (inputValue, total) => {
-  console.log('Transaction received')
-
+export const sendTransaction = (inputValue, oldTotal) => {
   return (dispatch) => {
     dispatch(transactionLoading())
     const currentUser = firebaseService.auth().currentUser
     const createdAt = new Date().getTime()
-    console.log(`Old total: ${total}`)
-    total += inputValue
-    console.log(`New total: ${total}`)
+    const newTotal = oldTotal + inputValue
+    console.log(`
+      Transaction received
+      inputValue: ${inputValue}
+      oldTotal: ${oldTotal}
+      newTotal: ${newTotal}
+    `)
     const transaction = {
       createdAt,
       inputValue,
-      total,
+      oldTotal,
+      newTotal,
       user: {
         id: currentUser.uid,
         email: currentUser.email
