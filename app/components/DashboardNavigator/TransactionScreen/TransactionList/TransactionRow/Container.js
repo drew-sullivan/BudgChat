@@ -12,7 +12,6 @@ class TransactionRowContainer extends Component {
     const isCurrentUser = firebaseService.auth().currentUser.email == this.props.transaction.user.email;
     return (
       <TransactionRow
-        total={this.props.total}
         transaction={this.props.transaction}
         isCurrentUser={isCurrentUser}/>
     );

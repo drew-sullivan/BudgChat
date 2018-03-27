@@ -12,11 +12,9 @@ class TransactionListComponent extends Component {
     super()
 
     this.renderItem = ({item}) => {
-      const total = this.props.data[0].newTotal
+      const newTotal = this.props.data[0].newTotal
       return (
-        <TransactionRow
-          transaction={item}
-          total={total} />
+        <TransactionRow transaction={item} />
       )
     }
 

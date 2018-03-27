@@ -12,7 +12,9 @@ class ActionButtonsComponent extends Component {
     super()
 
     this.handleButtonPress = () => {
-      this.props.sendTransaction(this.props.num, this.props.total)
+      console.log(this.props.num)
+      console.log(this.props.oldTotal)
+      this.props.sendTransaction(this.props.num, this.props.oldTotal)
       this.props.navigation.goBack()
     }
   }

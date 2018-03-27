@@ -16,8 +16,7 @@ class TransactionListContainer extends Component {
   render() {
     const data = getTransactionItems(this.props.transactions).reverse()
     return (
-      <TransactionListComponent
-        data={data} />
+      <TransactionListComponent data={data} />
     )
   }
 }

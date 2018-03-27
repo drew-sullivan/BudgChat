@@ -16,8 +16,6 @@ const transaction = (state = initialState, action) => {
       return { ...state, sending: false, sendingError: action.error }
     case types.TRANSACTION_SUCCESS:
       return { ...state, sending: false, sendingError: null, inputValue: 0, total: action.total }
-    // case types.TRANSACTION_UPDATE:
-    //   return { ...state, sending: false, inputValue: action.inputValue, sendingError: null }
     case types.LOAD_TRANSACTIONS_SUCCESS:
       return { ...state, transactions: action.transactions, loadTransactionsError: null }
     case types.LOAD_TRANSACTIONS_ERROR:

@@ -14,7 +14,7 @@ const TransactionRowComponent = props => {
   const date = moment(props.transaction.createdAt).format('dddd, L')
   const inputValue = props.transaction.inputValue
   const borderLeftColor = inputValue > 0 ? 'green' : 'red'
-  const newTotal = props.total
+  const newTotal = props.transaction.newTotal
   return (
     <View style={styles.container}>
       <View style={[styles.box, styles.leftBox, {borderLeftColor}]}>

@@ -3,12 +3,13 @@ import { connect } from 'react-redux'
 import { AppRegistry, Text, TextInput, View, Alert } from 'react-native'
 import PropTypes from 'prop-types'
 
+import { updateTransaction, loadTransactions } from '../../../store/transaction/actions'
+import { getTransactionItems } from '../../../store/transaction/selectors'
+
 import { withNavigation } from 'react-navigation'
 
 import InputButton from './InputButton'
 import ActionButtons from './ActionButtons'
-
-import { updateTransaction } from '../../../store/transaction'
 
 import styles from './Styles'
 
@@ -34,11 +35,18 @@ class NewTransactionFormComponent extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.loadTransactions()
+  }
+
   render() {
+    const data = getTransactionItems(this.props.transactions).reverse()
+    const oldTotal = data[0].oldTotal
+
+
     let len = this._getInputLength()
     const { params } = this.props.navigation.state;
     const isDeposit = params.isDeposit
-    // console.log(this.props.total)
     return (
       <View style={styles.container}>
         <View style={styles.amount}>
@@ -50,7 +58,7 @@ class NewTransactionFormComponent extends Component {
         <View style={styles.actionButtons}>
           <ActionButtons
             num={isDeposit ? +this.state.inputValue : +this.state.inputValue * -1}
-            total={this.props.total} />
+            oldTotal={oldTotal} />
         </View>
       </View>
     );
@@ -184,11 +192,20 @@ class NewTransactionFormComponent extends Component {
 }
 
 const mapStateToProps = state => ({
-  inputValue: state.transaction.inputValue
+  inputValue: state.transaction.inputValue,
+  transactions: state.transaction.transactions,
+  error: state.transaction.loadTransactionsError,
 })
 
 const mapDispatchToProps = {
-  updateTransaction
+  updateTransaction,
+  loadTransactions,
+}
+
+NewTransactionFormComponent.propTypes = {
+  transactions: PropTypes.object,
+  error: PropTypes.string,
+  loadTransactions: PropTypes.func.isRequired,
 }
 
 export default withNavigation(connect(mapStateToProps, mapDispatchToProps)(NewTransactionFormComponent));
