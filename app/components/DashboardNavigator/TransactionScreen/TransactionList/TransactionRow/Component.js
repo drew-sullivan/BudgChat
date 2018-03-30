@@ -14,7 +14,7 @@ const TransactionRowComponent = props => {
   const date = moment(props.transaction.createdAt).format('dddd, L')
   const inputValue = props.transaction.inputValue
   const borderLeftColor = inputValue > 0 ? 'green' : 'red'
-  const newTotal = props.transaction.newTotal
+  const runningBalance = props.transaction.runningBalance
   return (
     <View style={styles.container}>
       <View style={[styles.box, styles.leftBox, {borderLeftColor}]}>
@@ -22,7 +22,7 @@ const TransactionRowComponent = props => {
           <Text style={styles.textBold}>{_getPrintableNumber(inputValue)}</Text>
         </Text>
         <Text style={styles.regularText}>Running Balance:
-          <Text style={styles.textBold}>{_getPrintableNumber(newTotal)}</Text>
+          <Text style={styles.textBold}>&nbsp;{_getPrintableNumber(runningBalance)}</Text>
         </Text>
       </View>
       <View style={[styles.box, styles.rightBox]}>

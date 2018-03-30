@@ -41,7 +41,7 @@ class NewTransactionFormComponent extends Component {
 
   render() {
     const data = getTransactionItems(this.props.transactions).reverse()
-    const oldTotal = data[0].oldTotal
+    const runningBalance = data[0].runningBalance
 
 
     let len = this._getInputLength()
@@ -58,7 +58,7 @@ class NewTransactionFormComponent extends Component {
         <View style={styles.actionButtons}>
           <ActionButtons
             num={isDeposit ? +this.state.inputValue : +this.state.inputValue * -1}
-            oldTotal={oldTotal} />
+            runningBalance={runningBalance} />
         </View>
       </View>
     );
