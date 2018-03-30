@@ -39,7 +39,6 @@ class TransactionListComponent extends Component {
   render() {
     const data = this.props.data
     const contentContainerStyle = data.length ? null : styles.flatlistContainerStyle
-    // const total = data.length ? data[0].newTotal : null
     return (
       <FlatList
         ref={(c) => { this.flatList = c }}
@@ -49,9 +48,7 @@ class TransactionListComponent extends Component {
         keyExtractor={item => item.createdAt}
         renderItem={this.renderItem}
         getItemLayout={this.itemLayout}
-        ListEmptyComponent={this.emptyList}
-        // total={total}
-        />
+        ListEmptyComponent={this.emptyList} />
     )
   }
 }
