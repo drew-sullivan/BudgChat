@@ -9,11 +9,11 @@ import firebaseService from '../../../../../services/firebase'
 class TransactionRowContainer extends Component {
 
   render() {
-    const isCurrentUser = firebaseService.auth().currentUser.email == this.props.transaction.user.email;
+    const isCurrentUser = firebaseService.auth().currentUser.email == this.props.transaction.user.email
     return (
       <TransactionRow
         transaction={this.props.transaction}
-        isCurrentUser={isCurrentUser}/>
+        isCurrentUser={isCurrentUser} />
     );
   }
 }

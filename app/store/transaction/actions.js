@@ -11,21 +11,27 @@ export const sendTransaction = (payload) => {
     const createdAt = new Date().getTime()
     const inputValue = payload.inputValue
     const runningBalance = payload.runningBalance + inputValue
-    console.log(`
-      **Transaction received**
-
-      inputValue: ${payload.inputValue}
-      runningBalance: ${runningBalance}
-    `)
     const transaction = {
       createdAt,
-      inputValue: payload.inputValue,
+      inputValue,
       runningBalance,
       user: {
         id: currentUser.uid,
         email: currentUser.email
       }
     }
+
+    console.log(`
+      **Transaction received**
+
+      createdAt: ${createdAt}
+      inputValue: ${inputValue}
+      runningBalance: ${runningBalance}
+      user: {
+        id: ${currentUser.uid}
+        email: ${currentUser.email}
+      }
+    `)
 
     FIREBASE_REF_TRANSACTIONS.push().set(transaction, (error) => {
       if (error) {

@@ -41,9 +41,7 @@ class NewTransactionFormComponent extends Component {
 
   render() {
     const data = getTransactionItems(this.props.transactions).reverse()
-    const runningBalance = data[0].runningBalance
-
-
+    const runningBalance = data.length === 0 ? 0 : data[0].runningBalance
     let len = this._getInputLength()
     const { params } = this.props.navigation.state;
     const isDeposit = params.isDeposit

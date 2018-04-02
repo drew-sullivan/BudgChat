@@ -6,6 +6,14 @@ export default StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     flex: 1,
-    backgroundColor: COLOR_SCHEME.primary,
+    backgroundColor: 'white',
+  },
+  list: {
+    flex: 1
+  },
+  buttons: {
+    flex: 1,
+    marginBottom: 100,
+    backgroundColor: 'red'
   }
 })

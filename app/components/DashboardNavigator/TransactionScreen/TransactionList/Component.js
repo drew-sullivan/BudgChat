@@ -12,7 +12,6 @@ class TransactionListComponent extends Component {
     super()
 
     this.renderItem = ({item}) => {
-      const newTotal = this.props.data[0].newTotal
       return (
         <TransactionRow transaction={item} />
       )

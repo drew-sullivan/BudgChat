@@ -12,9 +12,9 @@ const TransactionRowComponent = props => {
   const isCurrentUser = props.isCurrentUser
   const username = isCurrentUser ? 'You' : props.transaction.user.email
   const date = moment(props.transaction.createdAt).format('dddd, L')
-  const inputValue = props.transaction.inputValue
+  const inputValue = props.transaction.inputValue || 0
   const borderLeftColor = inputValue > 0 ? 'green' : 'red'
-  const runningBalance = props.transaction.runningBalance
+  const runningBalance = props.transaction.runningBalance || 0
   return (
     <View style={styles.container}>
       <View style={[styles.box, styles.leftBox, {borderLeftColor}]}>
