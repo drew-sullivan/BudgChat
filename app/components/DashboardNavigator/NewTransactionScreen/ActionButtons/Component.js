@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Alert } from 'react-native'
+
 import { Container, Button, Icon, Text, Footer, FooterTab } from 'native-base'
+
 import { withNavigation } from 'react-navigation'
 
 import styles from './Styles'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { AppRegistry, Text, TextInput, View, Alert } from 'react-native'
+import { AppRegistry, Text, TextInput, View, Alert, Picker } from 'react-native'
 import PropTypes from 'prop-types'
 
 import { updateTransaction, loadTransactions } from '../../../store/transaction/actions'
@@ -50,6 +50,13 @@ class NewTransactionFormComponent extends Component {
         <View style={styles.amount}>
           <Text style={[ this._getDisplayFontSize(len), styles.displayText ]}>${this.state.inputValue}</Text>
         </View>
+        <Picker
+          style={styles.notesPicker}
+          selectedValue={this.state.language}
+          onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+          <Picker.Item label="Java" value="java" />
+          <Picker.Item label="JavaScript" value="js" />
+        </Picker>
         <View style={styles.input}>
           {this._renderInputButtons()}
         </View>

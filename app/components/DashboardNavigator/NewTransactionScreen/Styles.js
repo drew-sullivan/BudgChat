@@ -27,5 +27,11 @@ export default StyleSheet.create({
   },
   actionButtons: {
     flex: 1
+  },
+  notesPicker: {
+    flex: 2,
+    justifyContent: 'flex-end',
+    backgroundColor: COLOR_SCHEME.secondary,
+    // backgroundColor: 'red'
   }
 })
