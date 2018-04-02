@@ -25,14 +25,6 @@ const BUTTON_VALUES = [
   ['00', 0, 'back']
 ]
 
-const NOTE_VALUES = [
-  'Restaurant',
-  'Fun',
-  'Gift',
-  'Supplies',
-  'Other'
-]
-
 class NewTransactionFormComponent extends Component {
 
   constructor() {
