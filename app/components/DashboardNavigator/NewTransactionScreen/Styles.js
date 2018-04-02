@@ -5,18 +5,21 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: COLOR_SCHEME.secondary
   },
   amount: {
-    flex: 4,
+    flex: 3,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: COLOR_SCHEME.secondary,
+    backgroundColor: COLOR_SCHEME.secondary
   },
   input: {
     flex: 4,
     backgroundColor: COLOR_SCHEME.secondary,
-    paddingBottom: 30,
+    paddingBottom: 10,
+    marginLeft: 25,
+    marginRight: 25
   },
   inputRow: {
     flex: 1,
@@ -25,13 +28,10 @@ export default StyleSheet.create({
   displayText: {
     color: COLOR_SCHEME.textDark
   },
+  notesPicker: {
+    flex: 1,
+  },
   actionButtons: {
     flex: 1
-  },
-  notesPicker: {
-    flex: 2,
-    justifyContent: 'flex-end',
-    backgroundColor: COLOR_SCHEME.secondary,
-    // backgroundColor: 'red'
   }
 })

@@ -10,6 +10,7 @@ import { withNavigation } from 'react-navigation'
 
 import InputButton from './InputButton'
 import ActionButtons from './ActionButtons'
+import NotesPicker from './NotesPicker'
 
 import styles from './Styles'
 
@@ -22,7 +23,15 @@ const BUTTON_VALUES = [
   [4, 5, 6],
   [7, 8, 9],
   ['00', 0, 'back']
-];
+]
+
+const NOTE_VALUES = [
+  'Restaurant',
+  'Fun',
+  'Gift',
+  'Supplies',
+  'Other'
+]
 
 class NewTransactionFormComponent extends Component {
 
@@ -31,7 +40,8 @@ class NewTransactionFormComponent extends Component {
 
     this.state = {
       inputValue: '0.00',
-      inputValueLength: 1
+      inputValueLength: 1,
+      note: null
     }
   }
 
@@ -50,13 +60,7 @@ class NewTransactionFormComponent extends Component {
         <View style={styles.amount}>
           <Text style={[ this._getDisplayFontSize(len), styles.displayText ]}>${this.state.inputValue}</Text>
         </View>
-        <Picker
-          style={styles.notesPicker}
-          selectedValue={this.state.language}
-          onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
-          <Picker.Item label="Java" value="java" />
-          <Picker.Item label="JavaScript" value="js" />
-        </Picker>
+        <NotesPicker style={styles.notesPicker} />
         <View style={styles.input}>
           {this._renderInputButtons()}
         </View>
