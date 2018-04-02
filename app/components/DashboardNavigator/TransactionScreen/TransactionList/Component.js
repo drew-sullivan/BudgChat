@@ -19,7 +19,7 @@ class TransactionListComponent extends Component {
 
     this.emptyList = () => {
       return (
-        <Text style={styles.placeholder}>Hope you're having a good day!</Text>
+        <Text style={styles.placeholder}>Hope you're having a good day! Why not add a transaction below?</Text>
       )
     }
 

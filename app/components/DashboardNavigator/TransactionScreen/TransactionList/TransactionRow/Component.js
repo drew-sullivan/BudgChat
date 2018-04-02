@@ -32,7 +32,7 @@ const TransactionRowComponent = props => {
         <Text style={styles.regularText} numberOfLines={1}>Notes:
           <Text style={styles.textBold}>&nbsp;{notes}</Text>
         </Text>
-        <Text style={styles.regularText}>{username}</Text>
+        <Text style={styles.regularText} numberOfLines={1}>{username}</Text>
       </View>
     </View>
   )
