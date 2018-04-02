@@ -16,11 +16,12 @@ const TransactionRowComponent = props => {
   const borderLeftColor = inputValue >= 0 ? 'green' : 'red'
   const runningBalance = props.transaction.runningBalance || 0
   const notes = props.transaction.note || 'None'
+  const plusSign = inputValue > 0 ? '+' : ''
   return (
     <View style={styles.container}>
       <View style={[styles.box, styles.leftBox, {borderLeftColor}]}>
         <Text style={styles.textBig}>
-          <Text style={styles.textBold}>{_getPrintableNumber(inputValue)}</Text>
+          <Text style={styles.textBold}>{plusSign}{_getPrintableNumber(inputValue)}</Text>
         </Text>
         <Text style={styles.regularText}>Running Balance:
           <Text style={styles.textBold}>&nbsp;{_getPrintableNumber(runningBalance)}</Text>

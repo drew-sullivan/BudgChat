@@ -23,19 +23,6 @@ export const sendTransaction = (payload) => {
       }
     }
 
-    console.log(`
-      **Transaction received**
-
-      createdAt: ${createdAt}
-      inputValue: ${inputValue}
-      runningBalance: ${runningBalance}
-      note: ${note}
-      user: {
-        id: ${currentUser.uid}
-        email: ${currentUser.email}
-      }
-    `)
-
     FIREBASE_REF_TRANSACTIONS.push().set(transaction, (error) => {
       if (error) {
         dispatch(transactionError(error.message))

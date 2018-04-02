@@ -1,24 +1,12 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { AppRegistry, Text, TextInput, View, Alert, Picker } from 'react-native'
-import PropTypes from 'prop-types'
-
-import { updateTransaction, loadTransactions } from '../../../store/transaction/actions'
-import { getTransactionItems } from '../../../store/transaction/selectors'
-
-import { withNavigation } from 'react-navigation'
-
-import InputButton from './InputButton'
-import ActionButtons from './ActionButtons'
-import NotesPicker from './NotesPicker'
-// WIP:
-// import Keypad from './Keypad'
+import { Text, TextInput, View, Alert, Picker } from 'react-native'
 
 import styles from './Styles'
 
+import InputButton from '../InputButton'
+
 const OPACITY_ENABLED = 1.0
 const OPACITY_DISABLED = 0.2
-
 const MAX_DIGITS_ON_SCREEN = 7
 const BUTTON_VALUES = [
   [1, 2, 3],
@@ -27,7 +15,7 @@ const BUTTON_VALUES = [
   ['00', 0, 'back']
 ]
 
-class NewTransactionFormComponent extends Component {
+export default class Keypad extends Component {
 
   constructor() {
     super()
@@ -35,41 +23,15 @@ class NewTransactionFormComponent extends Component {
     this.state = {
       inputValue: '0.00',
       inputValueLength: 1,
-      note: 'Restaurant'
     }
   }
 
-  updateState = (pickedItem) => {
-    this.setState({
-      note: pickedItem
-    })
-  }
-
-  componentDidMount() {
-    this.props.loadTransactions()
-  }
-
   render() {
-    const data = getTransactionItems(this.props.transactions).reverse()
-    const runningBalance = data.length === 0 ? 0 : data[0].runningBalance
-    let len = this._getInputLength()
-    const { params } = this.props.navigation.state;
-    const isDeposit = params.isDeposit
     return (
-      <View style={styles.container}>
-        <View style={styles.amount}>
-          <Text style={[ this._getDisplayFontSize(len), styles.displayText ]}>${this.state.inputValue}</Text>
-        </View>
-        <NotesPicker
-          style={styles.notesPicker}
-          updateState={this.updateState} />
+      <View style={styles.input}>
         {this._renderInputButtons()}
-        <ActionButtons
-          num={isDeposit ? +this.state.inputValue : +this.state.inputValue * -1}
-          runningBalance={runningBalance}
-          note={this.state.note} />
       </View>
-    );
+    )
   }
 
   _onInputButtonPressed(input) {
@@ -198,22 +160,3 @@ class NewTransactionFormComponent extends Component {
   }
 
 }
-
-const mapStateToProps = state => ({
-  inputValue: state.transaction.inputValue,
-  transactions: state.transaction.transactions,
-  error: state.transaction.loadTransactionsError,
-})
-
-const mapDispatchToProps = {
-  updateTransaction,
-  loadTransactions,
-}
-
-NewTransactionFormComponent.propTypes = {
-  transactions: PropTypes.object,
-  error: PropTypes.string,
-  loadTransactions: PropTypes.func.isRequired,
-}
-
-export default withNavigation(connect(mapStateToProps, mapDispatchToProps)(NewTransactionFormComponent));

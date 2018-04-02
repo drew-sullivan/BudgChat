@@ -29,7 +29,7 @@ class ActionButtonsComponent extends Component {
 
   render() {
     return (
-      <Container style={styles.container}>
+      // <Container style={styles.container}>
         <Footer style={styles.buttonContainer}>
           <FooterTab>
             <Button vertical
@@ -45,7 +45,7 @@ class ActionButtonsComponent extends Component {
             </Button>
           </FooterTab>
         </Footer>
-      </Container>
+      // </Container>
     )
   }
 

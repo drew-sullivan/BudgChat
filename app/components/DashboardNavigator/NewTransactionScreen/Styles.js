@@ -9,29 +9,21 @@ export default StyleSheet.create({
     backgroundColor: COLOR_SCHEME.secondary
   },
   amount: {
-    flex: 3,
+    flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: COLOR_SCHEME.secondary
   },
-  input: {
-    flex: 4,
-    backgroundColor: COLOR_SCHEME.secondary,
-    paddingBottom: 10,
-    marginLeft: 25,
-    marginRight: 25
-  },
   inputRow: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginLeft: 40,
+    marginRight: 40
   },
   displayText: {
     color: COLOR_SCHEME.textDark
   },
   notesPicker: {
-    flex: 1,
-  },
-  actionButtons: {
-    flex: 1
+    flex: 2
   }
 })

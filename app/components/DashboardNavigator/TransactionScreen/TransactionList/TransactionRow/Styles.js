@@ -19,12 +19,12 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   leftBox: {
-    width: '60%',
+    width: '50%',
     alignItems: 'flex-start',
     borderLeftWidth: 10,
   },
   rightBox: {
-    width: '40%',
+    width: '50%',
     alignItems: 'flex-end',
   },
   textBig: {
@@ -38,5 +38,5 @@ export default StyleSheet.create({
   regularText: {
     fontSize: 12,
     color: COLOR_SCHEME.textDark,
-  },
+  }
 })
