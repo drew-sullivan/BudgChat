@@ -21,7 +21,7 @@ export default StyleSheet.create({
   leftBox: {
     width: '60%',
     alignItems: 'flex-start',
-    borderLeftWidth: 15,
+    borderLeftWidth: 10,
   },
   rightBox: {
     width: '40%',

@@ -13,7 +13,7 @@ const TransactionRowComponent = props => {
   const username = isCurrentUser ? 'You' : props.transaction.user.email
   const date = moment(props.transaction.createdAt).format('dddd, L')
   const inputValue = props.transaction.inputValue || 0
-  const borderLeftColor = inputValue > 0 ? 'green' : 'red'
+  const borderLeftColor = inputValue >= 0 ? 'green' : 'red'
   const runningBalance = props.transaction.runningBalance || 0
   const notes = props.transaction.note || 'None'
   return (
