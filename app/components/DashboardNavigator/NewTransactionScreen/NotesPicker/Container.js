@@ -4,6 +4,6 @@ import PropTypes from 'prop-types'
 import NotesPickerComponent from './Component'
 
 const NotesPickerContainer = props =>
-  <NotesPickerComponent />
+  <NotesPickerComponent updateState={props.updateState} />
 
 export default NotesPickerContainer

@@ -15,10 +15,12 @@ class ActionButtonsComponent extends Component {
     this.handleButtonPress = () => {
       const inputValue = this.props.num
       const runningBalance = this.props.runningBalance ? this.props.runningBalance : 0
+      const note = this.props.note
       this.props.sendTransaction(
         {
           inputValue,
-          runningBalance
+          runningBalance,
+          note
         }
       )
       this.props.navigation.goBack()

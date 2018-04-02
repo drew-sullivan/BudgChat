@@ -5,7 +5,7 @@ import styles from './Styles'
 
 const Item = Picker.Item
 
-const NOTE_VALUES = [
+const NOTE_OPTIONS = [
   'Restaurant',
   'Fun',
   'Gift',
@@ -21,13 +21,18 @@ export default class NotesPickerComponent extends Component {
     };
   }
 
+  handleChange = (itemValue) => {
+    this.props.updateState(itemValue)
+    this.setState({note: itemValue})
+  }
+
   render() {
     return (
       <Picker
         style={styles.notesPicker}
         selectedValue={this.state.note}
-        onValueChange={(itemValue, itemIndex) => this.setState({note: itemValue})}
-        itemStyle={styles.notesPickerItem}>
+        onValueChange={(itemValue, itemIndex) => this.handleChange(itemValue)}
+        itemStyle={styles.notesPickerItem} >
         {this._renderPickerItems()}
       </Picker>
     );
@@ -35,8 +40,8 @@ export default class NotesPickerComponent extends Component {
 
   _renderPickerItems() {
     items = []
-    for (let i = 0; i < NOTE_VALUES.length; i++) {
-      items.push(<Picker.Item label={NOTE_VALUES[i]} value={NOTE_VALUES[i]} key={NOTE_VALUES[i]} />)
+    for (let i = 0; i < NOTE_OPTIONS.length; i++) {
+      items.push(<Picker.Item label={NOTE_OPTIONS[i]} value={NOTE_OPTIONS[i]} key={NOTE_OPTIONS[i]} />)
     }
     return items
   }

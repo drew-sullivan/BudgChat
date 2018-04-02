@@ -37,6 +37,12 @@ class NewTransactionFormComponent extends Component {
     }
   }
 
+  updateState = (pickedItem) => {
+    this.setState({
+      note: pickedItem
+    })
+  }
+
   componentDidMount() {
     this.props.loadTransactions()
   }
@@ -47,19 +53,23 @@ class NewTransactionFormComponent extends Component {
     let len = this._getInputLength()
     const { params } = this.props.navigation.state;
     const isDeposit = params.isDeposit
+    // console.log(this.state.note)
     return (
       <View style={styles.container}>
         <View style={styles.amount}>
           <Text style={[ this._getDisplayFontSize(len), styles.displayText ]}>${this.state.inputValue}</Text>
         </View>
-        <NotesPicker style={styles.notesPicker} />
+        <NotesPicker
+          style={styles.notesPicker}
+          updateState={this.updateState} />
         <View style={styles.input}>
           {this._renderInputButtons()}
         </View>
         <View style={styles.actionButtons}>
           <ActionButtons
             num={isDeposit ? +this.state.inputValue : +this.state.inputValue * -1}
-            runningBalance={runningBalance} />
+            runningBalance={runningBalance}
+            note={this.state.note} />
         </View>
       </View>
     );

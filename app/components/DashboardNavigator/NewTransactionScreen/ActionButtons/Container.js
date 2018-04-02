@@ -13,7 +13,8 @@ const ActionButtonsContainer = props =>
     sendingError={props.sendingError}
     inputValue={props.inputValue}
     sendTransaction={props.sendTransaction}
-    runningBalance={props.runningBalance} />
+    runningBalance={props.runningBalance}
+    note={props.note} />
 
 const mapStateToProps = state => ({
   sending: state.transaction.sending,

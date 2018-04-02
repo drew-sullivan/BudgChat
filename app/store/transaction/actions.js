@@ -11,10 +11,12 @@ export const sendTransaction = (payload) => {
     const createdAt = new Date().getTime()
     const inputValue = payload.inputValue
     const runningBalance = payload.runningBalance + inputValue
+    const note = payload.note
     const transaction = {
       createdAt,
       inputValue,
       runningBalance,
+      note,
       user: {
         id: currentUser.uid,
         email: currentUser.email
@@ -27,6 +29,7 @@ export const sendTransaction = (payload) => {
       createdAt: ${createdAt}
       inputValue: ${inputValue}
       runningBalance: ${runningBalance}
+      note: ${note}
       user: {
         id: ${currentUser.uid}
         email: ${currentUser.email}
