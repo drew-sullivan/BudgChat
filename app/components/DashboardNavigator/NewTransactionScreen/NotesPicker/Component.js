@@ -28,8 +28,6 @@ export default class NotesPickerComponent extends Component {
         selectedValue={this.state.note}
         onValueChange={(itemValue, itemIndex) => this.setState({note: itemValue})}
         itemStyle={styles.notesPickerItem}>
-        {/* <Picker.Item label="Monkey" value="java" />
-        <Picker.Item label="Giraffe" value="js" /> */}
         {this._renderPickerItems()}
       </Picker>
     );
