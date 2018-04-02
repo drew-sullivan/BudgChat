@@ -15,6 +15,7 @@ const TransactionRowComponent = props => {
   const inputValue = props.transaction.inputValue || 0
   const borderLeftColor = inputValue > 0 ? 'green' : 'red'
   const runningBalance = props.transaction.runningBalance || 0
+  const notes = props.transaction.note || 'None'
   return (
     <View style={styles.container}>
       <View style={[styles.box, styles.leftBox, {borderLeftColor}]}>
@@ -28,7 +29,7 @@ const TransactionRowComponent = props => {
       <View style={[styles.box, styles.rightBox]}>
         <Text style={styles.regularText}>{date}</Text>
         <Text style={styles.regularText} numberOfLines={1}>Notes:
-          <Text style={styles.textBold}>&nbsp;[notes]</Text>
+          <Text style={styles.textBold}>&nbsp;{notes}</Text>
         </Text>
         <Text style={styles.regularText}>{username}</Text>
       </View>

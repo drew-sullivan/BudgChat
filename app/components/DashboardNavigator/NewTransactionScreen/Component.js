@@ -33,7 +33,7 @@ class NewTransactionFormComponent extends Component {
     this.state = {
       inputValue: '0.00',
       inputValueLength: 1,
-      note: null
+      note: 'Restaurant'
     }
   }
 
@@ -53,7 +53,6 @@ class NewTransactionFormComponent extends Component {
     let len = this._getInputLength()
     const { params } = this.props.navigation.state;
     const isDeposit = params.isDeposit
-    // console.log(this.state.note)
     return (
       <View style={styles.container}>
         <View style={styles.amount}>
