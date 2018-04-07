@@ -1,9 +1,9 @@
 import React from 'react'
-import { KeyboardAvoidingView, View, Button } from 'react-native'
+import { View, Button } from 'react-native'
 import { StackNavigator } from 'react-navigation';
 
 import TransactionList from './TransactionList'
-import NewTransactionButtons from './NewTransactionButtons/Component';
+import NewTransactionButtons from './NewTransactionButtons/Component'
 
 import styles from './Styles'
 

@@ -9,7 +9,7 @@ const NewTransactionButtonComponent = props =>
     <FooterTab>
       <Button vertical onPress={() => props.navigation.navigate('NewTransaction', { isDeposit: true })}>
         <Icon style={styles.textColor} name="arrow-round-up" />
-        <Text style={styles.textColor} >Make a Deposit</Text>
+        <Text style={styles.textColor}>Make a Deposit</Text>
       </Button>
       <Button vertical onPress={() => props.navigation.navigate('NewTransaction', { isDeposit: false })}>
         <Icon style={styles.textColor} name="arrow-round-down" />

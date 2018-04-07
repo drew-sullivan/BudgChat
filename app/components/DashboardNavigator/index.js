@@ -6,13 +6,13 @@ import { StackNavigator } from 'react-navigation'
 
 import TransactionScreen from './TransactionScreen'
 import NewTransactionScreen from './NewTransactionScreen'
+import GroupScreen from './GroupScreen'
 
 export default StackNavigator(
   {
     Transactions: { screen: TransactionScreen },
-    NewTransaction: {
-      screen: NewTransactionScreen
-    }
+    NewTransaction: { screen: NewTransactionScreen },
+    Groups: { screen: GroupScreen }
   },
   {
     initialRouteName: 'Transactions',
@@ -23,4 +23,4 @@ export default StackNavigator(
       }
     }
   }
-);
+)
