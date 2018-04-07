@@ -5,12 +5,17 @@ import styles from './Styles'
 
 const Item = Picker.Item
 
-const NOTE_OPTIONS = [
+const WITHDRAWL_OPTIONS = [
   'Restaurant',
   'Fun',
   'Gift',
   'Supplies',
   'Other'
+]
+
+const DEPOSIT_OPTIONS = [
+  'Budget',
+  'Windfall',
 ]
 
 export default class NotesPickerComponent extends Component {
@@ -33,15 +38,23 @@ export default class NotesPickerComponent extends Component {
         selectedValue={this.state.note}
         onValueChange={(itemValue, itemIndex) => this.handleChange(itemValue)}
         itemStyle={styles.notesPickerItem} >
-        {this._renderPickerItems()}
+        {this.props.isDeposit ? this._renderDepositPicker() : this._renderWithdrawlPicker()}
       </Picker>
     );
   }
 
-  _renderPickerItems() {
+  _renderWithdrawlPicker() {
     items = []
-    for (let i = 0; i < NOTE_OPTIONS.length; i++) {
-      items.push(<Picker.Item label={NOTE_OPTIONS[i]} value={NOTE_OPTIONS[i]} key={NOTE_OPTIONS[i]} />)
+    for (let i = 0; i < WITHDRAWL_OPTIONS.length; i++) {
+      items.push(<Picker.Item label={WITHDRAWL_OPTIONS[i]} value={WITHDRAWL_OPTIONS[i]} key={WITHDRAWL_OPTIONS[i]} />)
+    }
+    return items
+  }
+
+  _renderDepositPicker() {
+    items = []
+    for (let i = 0; i < DEPOSIT_OPTIONS.length; i++) {
+      items.push(<Picker.Item label={DEPOSIT_OPTIONS[i]} value={DEPOSIT_OPTIONS[i]} key={DEPOSIT_OPTIONS[i]} />)
     }
     return items
   }

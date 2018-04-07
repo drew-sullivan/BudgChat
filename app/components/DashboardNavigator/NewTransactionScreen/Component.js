@@ -62,7 +62,8 @@ class NewTransactionFormComponent extends Component {
         </View>
         <NotesPicker
           style={styles.notesPicker}
-          updateState={this.updateState} />
+          updateState={this.updateState}
+          isDeposit={isDeposit} />
         {this._renderInputButtons()}
         <ActionButtons
           num={isDeposit ? +this.state.inputValue : +this.state.inputValue * -1}
